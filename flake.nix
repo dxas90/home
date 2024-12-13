@@ -41,14 +41,14 @@
     overlays = import ./overlays.nix { inherit inputs; };
 
     nixosConfigurations = {
-      fractal = nixpkgs.lib.nixosSystem {
+      ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [ ./nixos/ullr ];
       };
     };
 
     homeConfigurations = {
-      ben = home-manager.lib.homeManagerConfiguration {
+      me = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./home-manager/me ];
         pkgs = pkgsFor.x86_64-linux;
