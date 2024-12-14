@@ -153,7 +153,7 @@
     shell = pkgs.bash;
     home = "/home/daniel";
     isNormalUser = true;
-    # openssh.authorizedKeys.keys = builtins.fetchurl https://github.com/dramirez-qb.keys;
+    openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl https://github.com/dramirez-qb.keys);
     extraGroups = [
       "networkmanager"
       "plugdev"

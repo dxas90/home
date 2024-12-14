@@ -8,6 +8,13 @@
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # sops-nix - secrets with mozilla sops
+    # https://github.com/Mic92/sops-nix
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sugar-candy.url = "github:zhaith-izaliel/sddm-sugar-candy-nix";
 
     hardware.url = "github:nixos/nixos-hardware";
