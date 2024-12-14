@@ -40,10 +40,9 @@ in
   programs.bash.enable = true;
   programs.bash.bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
 
-  environment.shellAliases = {
-    vim = "nvim";
-    ll = "ls -l";
-  };
+  environment.interactiveShellInit = ''
+    alias vim='nvim'
+  '';
 
   programs.git = {
     enable = true;
