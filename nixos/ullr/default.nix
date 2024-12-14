@@ -216,7 +216,7 @@
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
-  environment.etc."nixos/dotfiles-src".source = builtins.fetchGit ./.;
+  # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit ./.;
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
