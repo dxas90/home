@@ -40,6 +40,10 @@ in
   programs.bash.enable = true;
   programs.bash.bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
 
+  environment.interactiveShellInit = ''
+    alias vim='nvim'
+  '';
+
   programs.git = {
     enable = true;
     userName = "Daniel Ramirez";
@@ -106,14 +110,14 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages =  with pkgs; [
-     syncthing
-     kubectl
-     vcluster
      devspace
      k3d
-     nerdfonts
      k9s
-     starship
+     kubectl
+     lazygit
+     nerdfonts
+     syncthing
+     vcluster
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

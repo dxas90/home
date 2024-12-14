@@ -185,7 +185,6 @@
     brave
     btop
     curl
-    devspace
     direnv
     docker_27
     fd
@@ -196,11 +195,7 @@
     gnumake
     htop
     jq
-    k3d
-    k9s
     killall
-    kubectl
-    lazygit
     mc
     neovim
     nerdfonts
@@ -209,7 +204,6 @@
     steam
     sops
     starship
-    vcluster
     waydroid
     wezterm
     wget
@@ -217,7 +211,7 @@
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
-  # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit ./.;
+  environment.etc."nixos/dotfiles-src".source = builtins.fetchGit ./.;
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
@@ -225,7 +219,6 @@
   programs.neovim.enable = true;
   programs.steam.enable = true;
   programs.git.enable = true;
-  programs.bash.enable = true;
 
   virtualisation.waydroid.enable = true;
   virtualisation.docker.enable = false;
