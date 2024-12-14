@@ -50,7 +50,7 @@
     homeConfigurations = {
       daniel = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home-manager/me ];
+        modules = [ ./home-manager/daniel ];
         pkgs = pkgsFor.x86_64-linux;
       };
     };
