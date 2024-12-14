@@ -28,10 +28,16 @@
       dates = [ "weekly" ];
     };
 
+    # Avoid disk full issues
+    max-free = lib.mkDefault (1000 * 1000 * 1000);
+    min-free = lib.mkDefault (128 * 1000 * 1000);
+
+    warn-dirty = false;
+
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "-d --repair --delete-older-than 7d";
+      options = "-d --repair --delete-older-than 2d";
       randomizedDelaySec = "45min";
     };
   };
@@ -162,6 +168,10 @@
       "media"
       "video"
       "dialout"
+    ]
+    ++ ifGroupsExist [
+      "network"
+      "samba-users"
     ];
   };
 
@@ -218,7 +228,10 @@
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
-
+  environment .variables = {
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+  };
   environment.interactiveShellInit = ''
     alias vim='nvim'
   '';

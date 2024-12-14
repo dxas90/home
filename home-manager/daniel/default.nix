@@ -1,6 +1,6 @@
 { inputs, outputs, config, pkgs, ... }:
 let
-  homeDirectory = "/home/daniel";
+  ageKeyFile = "${config.users.users.daniel.home}/.config/age/keys.txt";
 in
 {
   ##################################################
@@ -27,7 +27,7 @@ in
   # manage.
 
   home.username = "daniel";
-  home.homeDirectory = homeDirectory;
+  home.homeDirectory = config.users.users.daniel.home;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -159,7 +159,7 @@ in
      # For more information about this template, check out
      # https://chris.beams.io/posts/git-commit/
     '';
-    ".gitignore".source = "${homeDirectory}/Sync/.gitignore";
+    ".gitignore".source = "${config.users.users.daniel.home}/Sync/.gitignore";
     ".wezterm.lua".text = ''
     -- Pull in the wezterm API
     local wezterm = require 'wezterm'
