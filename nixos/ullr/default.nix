@@ -241,6 +241,7 @@ in
     git
     gnumake
     htop
+    ifmetric
     jq
     killall
     lshw
