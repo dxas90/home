@@ -24,16 +24,16 @@ in
       auto-optimise-store = true;
       experimental-features = "nix-command flakes";
       nix-path = config.nix.nixPath;
+
+      # Avoid disk full issues
+      max-free = lib.mkDefault (1000 * 1000 * 1000);
+      min-free = lib.mkDefault (128 * 1000 * 1000);
     };
 
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
-
-    # Avoid disk full issues
-    max-free = lib.mkDefault (1000 * 1000 * 1000);
-    min-free = lib.mkDefault (128 * 1000 * 1000);
 
     warn-dirty = false;
 
