@@ -162,7 +162,10 @@ in
     shell = pkgs.bash;
     home = "/home/daniel";
     isNormalUser = true;
-    openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl https://github.com/dramirez-qb.keys);
+    openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl {
+      url = https://github.com/dramirez-qb.keys;
+      sha256 = "621341ff4df62480eac9092e449ac565ac3440b68ae373a78b37c0ca4577e5d2";
+    });
     extraGroups = [
       "networkmanager"
       "plugdev"
@@ -231,7 +234,7 @@ in
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
-  environment .variables = {
+  environment.variables = {
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
   };
@@ -240,16 +243,37 @@ in
   '';
 
   programs.neovim.enable = true;
-  programs.steam.enable = true;
   programs.git.enable = true;
+  programs.gamemode.enable = true;
 
-  virtualisation.waydroid.enable = true;
-  virtualisation.docker.enable = false;
-  virtualisation.docker.daemon.settings = {
-      userland-proxy = false;
-      experimental = true;
-      metrics-addr = "0.0.0.0:9323";
-      ipv6 = true;
-      fixed-cidr-v6 = "fd00::/80";
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+
+  virtualisation = {
+    containers ={
+      enable = true;
+    };
+    docker = {
+      enable = false;
+      daemon.settings = {
+        userland-proxy = false;
+        experimental = true;
+        metrics-addr = "0.0.0.0:9323";
+        ipv6 = true;
+        fixed-cidr-v6 = "fd00::/80";
+      };
+    };
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    waydroid = {
+      enable = true;
+    };
   };
 }
