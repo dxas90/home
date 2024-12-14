@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 let
   ifGroupsExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+  ageKeyFile = "${config.users.users.daniel.home}/.config/age/keys.txt";
 in
 {
   imports = [
@@ -194,6 +195,11 @@ in
       sansSerif = [ "Ubuntu Sans" ];
       monospace = [ "CaskaydiaCove NF" ];
     };
+  };
+
+  sops = {
+    age.keyFile = ageKeyFile;
+    age.generateKey = true;
   };
 
   environment.systemPackages = with pkgs; [
