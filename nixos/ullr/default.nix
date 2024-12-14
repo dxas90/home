@@ -211,10 +211,10 @@
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
-  environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
-    url = "https://github.com/dramirez-qb/home.git";
-    ref = "main";
-  };
+  # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
+  #   url = "https://github.com/dramirez-qb/home.git";
+  #   ref = "main";
+  # };
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
