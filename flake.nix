@@ -11,7 +11,6 @@
     nixvim.url = "github:nix-community/nixvim/nixos-24.11";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprpanel.url = "github:jas-singhfsu/hyprpanel";
     sugar-candy.url = "github:zhaith-izaliel/sddm-sugar-candy-nix";
 
     hardware.url = "github:nixos/nixos-hardware";

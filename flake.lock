@@ -203,25 +203,6 @@
         "type": "github"
       }
     },
-    "hyprpanel": {
-      "inputs": {
-        "ags": "ags",
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1733062031,
-        "narHash": "sha256-cPm3IukRcKZqTgmjL9kh3ZYGoXBD8elaTQ3TFo+W67Q=",
-        "owner": "jas-singhfsu",
-        "repo": "hyprpanel",
-        "rev": "955eed6c60a3ea5d6b0b1b8b7086cffbae984277",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jas-singhfsu",
-        "repo": "hyprpanel",
-        "type": "github"
-      }
-    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -407,7 +388,6 @@
       "inputs": {
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "hyprpanel": "hyprpanel",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
