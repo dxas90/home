@@ -28,14 +28,14 @@ in
       # Avoid disk full issues
       max-free = lib.mkDefault (1000 * 1000 * 1000);
       min-free = lib.mkDefault (128 * 1000 * 1000);
+
+      warn-dirty = false;
     };
 
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
     };
-
-    warn-dirty = false;
 
     gc = {
       automatic = true;
