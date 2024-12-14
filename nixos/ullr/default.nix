@@ -1,6 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
     inputs.sugar-candy.nixosModules.default
   ];
 
