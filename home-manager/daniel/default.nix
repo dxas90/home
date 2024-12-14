@@ -160,7 +160,7 @@ in
      # For more information about this template, check out
      # https://chris.beams.io/posts/git-commit/
     '';
-    ".gitignore".source = "${config.users.users.daniel.home}/Sync/.gitignore";
+    ".gitignore".source = "${homeDirectory}/Sync/.gitignore";
     ".wezterm.lua".text = ''
     -- Pull in the wezterm API
     local wezterm = require 'wezterm'
