@@ -74,11 +74,20 @@ in
   #                 BOOT LOADER                 #
   ###############################################
   boot.loader = {
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 3;
-    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = false;
+      configurationLimit = 3;
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    };
+    grub = {
+      efiSupport = true;
+      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+      device = "nodev";
+    };
   };
-
   boot.plymouth = {
     enable = true;
     theme = "colorful_loop";
