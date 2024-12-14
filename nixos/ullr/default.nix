@@ -219,6 +219,10 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
+  environment.interactiveShellInit = ''
+    alias vim='nvim'
+  '';
+
   programs.neovim.enable = true;
   programs.steam.enable = true;
   programs.git.enable = true;
