@@ -50,6 +50,10 @@
         specialArgs = { inherit inputs outputs; };
         modules = [ ./nixos/ullr ];
       };
+      generic = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [ ./nixos/generic-vm ];
+      };
     };
 
     homeConfigurations = {
