@@ -43,7 +43,7 @@ in
   environment.shellAliases = {
     vim = "nvim";
     ll = "ls -l";
-  }
+  };
 
   programs.git = {
     enable = true;
