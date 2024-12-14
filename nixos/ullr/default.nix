@@ -98,7 +98,19 @@ in
     ];
   };
 
-  boot.kernel.sysctl = { "vm.swappiness" = 1; };
+  boot.kernel.sysctl = { 
+    "fs.aio-max-nr" = 524288;
+    "fs.file-max" = 9000000;
+    "fs.inotify.max_user_instances" = 10240;
+    "fs.inotify.max_user_watches" = 524288;
+    "fs.nr_open" = 12000000;
+    "kernel.dmesg_restrict" = 0;
+    "kernel.hung_task_timeout_secs" = 0;
+    "net.core.rmem_max" = 16777216;
+    "net.ipv4.tcp_fastopen" = 3;
+    "vm.swappiness" = 1;
+    "vm.vfs_cache_pressure" = 50;
+  };
   boot.tmp.useTmpfs = true;
   boot.tmp.cleanOnBoot = true;
 
@@ -112,8 +124,9 @@ in
   };
 
   services.udev.extraRules = ''
-    SUBSYSTEM=="apex", MODE="0660", GROUP="users"
-    ACTION=="add", SUBSYSTEM=="net", ATTR{address}=="b8:85:84:b8:ae:2c", NAME="eth0"
+    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTRS{idVendor}=="2357", ATTRS{idProduct}=="012d", ATTR{address}="34:60:f9:92:56:4c", NAME="usb_wlan0", SYMLINK+="usb_wlan0", TAG+="uaccess", TAG+="wifi", RUN+="/usr/sbin/ifmetric usb_wlan0 503"
+    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTRS{idVendor}=="2001", ATTRS{idProduct}=="3319", ATTR{address}="34:0a:33:35:02:14", NAME="usb_wlan1", SYMLINK+="usb_wlan1", TAG+="uaccess", TAG+="wifi", RUN+="/usr/sbin/ifmetric usb_wlan1 502"
+    SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTRS{idVendor}=="2001", ATTRS{idProduct}=="331d", ATTR{address}="34:0a:33:34:86:8c", NAME="usb_wlan2", SYMLINK+="usb_wlan2", TAG+="uaccess", TAG+="wifi", RUN+="/usr/sbin/ifmetric usb_wlan2 500"
   '';
 
   services.displayManager.sddm = {
@@ -214,7 +227,9 @@ in
 
   environment.systemPackages = with pkgs; [
     age
+    aria2
     brave
+    bc
     btop
     curl
     direnv
@@ -228,6 +243,10 @@ in
     htop
     jq
     killall
+    lshw
+    lsof
+    lz4
+    lzip
     mc
     neovim
     nerdfonts
@@ -236,8 +255,10 @@ in
     steam
     sops
     starship
+    vlc
     waydroid
     wezterm
+    wireguard
     wget
     yakuake
   ];
@@ -276,11 +297,13 @@ in
     docker = {
       enable = false;
       daemon.settings = {
-        userland-proxy = false;
         experimental = true;
-        metrics-addr = "0.0.0.0:9323";
-        ipv6 = true;
         fixed-cidr-v6 = "fd00::/80";
+        ip6tables = false;
+        ipv6 = false;
+        live-restore = true;
+        metrics-addr = "0.0.0.0:9323";
+        userland-proxy = false;
       };
     };
     podman = {
