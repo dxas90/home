@@ -213,6 +213,7 @@
     waydroid
     wezterm
     wget
+    yakuake
     zsh
   ];
 
