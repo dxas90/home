@@ -150,7 +150,7 @@
   #                 USER APPLICATION                 #
   ####################################################
   users.users.daniel = {
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
     home = "/home/daniel";
     isNormalUser = true;
     # openssh.authorizedKeys.keys = builtins.fetchurl https://github.com/dramirez-qb.keys;
@@ -214,7 +214,6 @@
     wezterm
     wget
     yakuake
-    zsh
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
@@ -226,7 +225,7 @@
   programs.neovim.enable = true;
   programs.steam.enable = true;
   programs.git.enable = true;
-  programs.zsh.enable = true;
+  programs.bash.enable = true;
 
   virtualisation.waydroid.enable = true;
   virtualisation.docker.enable = false;
