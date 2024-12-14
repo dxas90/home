@@ -258,7 +258,7 @@ in
     vlc
     waydroid
     wezterm
-    wireguard
+    wireguard-tools
     wget
     yakuake
   ];
