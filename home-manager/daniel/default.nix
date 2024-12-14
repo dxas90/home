@@ -1,6 +1,6 @@
 { inputs, outputs, config, pkgs, ... }:
 let
-  ageKeyFile = "${config.users.users.daniel.home}/.config/age/keys.txt";
+  ageKeyFile = "${users.users.daniel.home}/.config/age/keys.txt";
 in
 {
   ##################################################
@@ -27,7 +27,7 @@ in
   # manage.
 
   home.username = "daniel";
-  home.homeDirectory = config.users.users.daniel.home;
+  home.homeDirectory = users.users.daniel.home;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
