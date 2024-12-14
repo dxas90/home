@@ -48,7 +48,7 @@
     };
 
     homeConfigurations = {
-      me = home-manager.lib.homeManagerConfiguration {
+      daniel = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./home-manager/me ];
         pkgs = pkgsFor.x86_64-linux;
