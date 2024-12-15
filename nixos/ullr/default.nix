@@ -170,6 +170,7 @@ in
   };
 
   services.flatpak.enable = true;
+  services.pcscd.enable = true;
 
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
@@ -254,7 +255,6 @@ in
     neovim
     nerdfonts
     obs-studio
-    pcsclite
     ripgrep
     steam
     sops
