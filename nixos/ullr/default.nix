@@ -246,6 +246,7 @@ in
     gnumake
     htop
     jq
+    kdePackages.ksshaskpass
     kdePackages.qtwayland
     killall
     lshw
@@ -279,6 +280,7 @@ in
   environment.variables = {
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
+    SSH_ASKPASS_REQUIRE="prefer";
   };
   environment.interactiveShellInit = ''
     alias vim='nvim'
@@ -287,7 +289,11 @@ in
   programs.neovim.enable = true;
   programs.git.enable = true;
   programs.gamemode.enable = true;
-  programs.ssh.startAgent = true;
+
+  programs.ssh = {
+    startAgent = true;
+    askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  };
 
   programs.steam = {
     enable = true;
