@@ -265,6 +265,7 @@ in
     wezterm
     wireguard-tools
     wget
+    x11_ssh_askpass
     yakuake
   ];
 
