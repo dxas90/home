@@ -295,6 +295,7 @@ in
   programs.git.enable = true;
   programs.gamemode.enable = true;
   # programs.ssh.startAgent = true;
+  programs.ssh.askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
 
   programs.steam = {
     enable = true;
