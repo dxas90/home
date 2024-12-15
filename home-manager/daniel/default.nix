@@ -161,6 +161,9 @@ in
      # https://chris.beams.io/posts/git-commit/
     '';
     ".gitignore".source = ./.gitignore;
+    ".config/environment.d/ssh-agent.conf".text = ''
+    SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
+    '';
     ".config/starship.toml".source = ./starship.toml;
     ".config/nvim" = {
         source = ./nvim;
@@ -220,6 +223,7 @@ in
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    GS_OPTIONS = "-sPAPERSIZE=a4";
   };
 
   home.shellAliases = {
