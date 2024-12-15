@@ -236,7 +236,8 @@ in
     btop
     curl
     direnv
-    docker_27
+    docker
+    docker-buildx
     fd
     fzf
     gcc
@@ -265,7 +266,6 @@ in
     wireguard-tools
     wget
     yakuake
-    yubikey-manager-qt
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
