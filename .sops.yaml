@@ -6,7 +6,7 @@ keys:
   - &ace1 age1rlqpy6jy8kjfpwa2qce4gwgr8gqjez9fdxllq9xzcvmwx3gw8glqcffgm0
   - &ace2 age17nr093c37k5732q9ksxf2p785wd9fxjej7axzcn66lm6muys0eks9kmzts
 creation_rules:
-  - path_regex: nixos/**/secrets/[^/]+\.(yaml|json|env|ini)$
+  - path_regex: secrets/.*\.sops\.(ya?ml|json|env|ini)$
     key_groups:
       - age:
           - *ace1

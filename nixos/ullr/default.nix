@@ -228,7 +228,6 @@ in
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     defaultSopsFile = ./secrets/example.yaml;
     secrets."myservice/my_subdir/my_secret" = {};
-    secrets.example-key = {};
   };
 
   environment.systemPackages = with pkgs; [
