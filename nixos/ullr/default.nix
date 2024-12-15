@@ -280,7 +280,6 @@ in
   environment.variables = {
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
-    SSH_ASKPASS_REQUIRE="prefer";
   };
   environment.interactiveShellInit = ''
     alias vim='nvim'
@@ -295,11 +294,6 @@ in
   programs.neovim.enable = true;
   programs.git.enable = true;
   programs.gamemode.enable = true;
-  programs.ssh = {
-    startAgent = true;
-    enableAskPassword = true;
-    askPassword = "${pkgs.x11_ssh_askpass}/libexec/x11-ssh-askpass";
-  };
 
   programs.steam = {
     enable = true;
