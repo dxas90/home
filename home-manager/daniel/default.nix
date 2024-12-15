@@ -222,6 +222,12 @@ in
     EDITOR = "nvim";
   };
 
+  home.shellAliases = {
+    g = "git";
+    "..." = "cd ../..";
+    hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";
+  };
+
   # services
 #  services.syncthing = {
 #    enable = true;

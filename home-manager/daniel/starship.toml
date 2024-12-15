@@ -5,7 +5,7 @@
 [os]
 format = "on [($name )]($style)"
 style = "bold blue"
-disabled = false
+disabled = true
 
 [os.symbols]
 NixOS = "❄️ "
