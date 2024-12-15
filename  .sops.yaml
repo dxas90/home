@@ -1,0 +1,20 @@
+# This example uses YAML anchors which allows reuse of multiple keys 
+# without having to repeat yourself.
+# Also see https://github.com/Mic92/dotfiles/blob/master/nixos/.sops.yaml
+# for a more complex example.
+keys:
+  - &ace1 age1rlqpy6jy8kjfpwa2qce4gwgr8gqjez9fdxllq9xzcvmwx3gw8glqcffgm0
+  - &ace2 age17nr093c37k5732q9ksxf2p785wd9fxjej7axzcn66lm6muys0eks9kmzts
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *ace1
+          - *ace2
+  # https://github.com/ansible-collections/community.sops/issues/153
+  - path_regex: /dev/stdin
+    key_groups:
+      - age:
+          - *ace1
+          - *ace2
+

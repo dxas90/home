@@ -155,7 +155,7 @@ in
     };
   };
 
-  services.displayManager.defaultSession = "plasmax11";
+  services.displayManager.defaultSession = "plasma";
   services.desktopManager.plasma6.enable = true;
 
   services.openssh = {

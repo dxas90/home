@@ -48,7 +48,10 @@
     nixosConfigurations = {
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./nixos/ullr ];
+        modules = [ 
+          ./nixos/ullr
+          sops-nix.nixosModules.sops
+        ];
       };
       generic = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
