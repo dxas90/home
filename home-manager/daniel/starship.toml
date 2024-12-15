@@ -1,4 +1,14 @@
 # ~/.config/starship.toml
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[os]
+format = "on [($name )]($style)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+NixOS = "❄️ "
 
 [battery]
 full_symbol = "🔋"
