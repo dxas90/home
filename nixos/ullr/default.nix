@@ -246,7 +246,6 @@ in
     gnumake
     htop
     jq
-    kdePackages.ksshaskpass
     kdePackages.qtwayland
     killall
     lshw
