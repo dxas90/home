@@ -295,7 +295,7 @@ in
   programs.neovim.enable = true;
   programs.git.enable = true;
   programs.gamemode.enable = true;
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
 
   programs.steam = {
     enable = true;
