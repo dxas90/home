@@ -227,6 +227,8 @@ in
 
   environment.systemPackages = with pkgs; [
     age
+    age-plugin-yubikey
+    appimage-run
     aria2
     brave
     bc
@@ -242,6 +244,7 @@ in
     gnumake
     htop
     jq
+    kdePackages.qtwayland
     killall
     lshw
     lsof
@@ -261,6 +264,7 @@ in
     wireguard-tools
     wget
     yakuake
+    yubikey-manager-qt
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
@@ -288,6 +292,11 @@ in
     gamescopeSession.enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+  };
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
   };
 
   virtualisation = {
