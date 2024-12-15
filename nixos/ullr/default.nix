@@ -254,6 +254,7 @@ in
     neovim
     nerdfonts
     obs-studio
+    pcsclite
     ripgrep
     steam
     sops
