@@ -1,7 +1,7 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 let
   ifGroupsExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  ageKeyFile = "${config.users.users.daniel.home}/.config/age/keys.txt";
+  ageKeyFile = "${config.users.users.daniel.home}/.config/sops/age/keys.txt";
 in
 {
   imports = [
@@ -223,8 +223,12 @@ in
   };
 
   sops = {
-    age.keyFile = ageKeyFile;
     age.generateKey = true;
+    age.keyFile = ageKeyFile;
+    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+    defaultSopsFile = ./secrets/example.yaml;
+    secrets."myservice/my_subdir/my_secret" = {};
+    secrets.example-key = {};
   };
 
   environment.systemPackages = with pkgs; [
