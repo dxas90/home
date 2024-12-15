@@ -24,8 +24,14 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/DA24-4473";
+  # fileSystems."/boot" =
+  #   { device = "/dev/disk/by-uuid/DA24-4473";
+  #     fsType = "vfat";
+  #     options = [ "fmask=0077" "dmask=0077" ];
+  #   };
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/F656-1986";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
