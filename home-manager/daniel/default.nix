@@ -116,7 +116,6 @@ in
      k9s
      kubectl
      lazygit
-     obs-studio
      nerdfonts
      syncthing
      vcluster
@@ -245,6 +244,16 @@ in
 
   programs.direnv.enable = true;
   programs.lazygit.enable = true;
+  programs.obs-studio {
+    enable = true;
+    plugins = with pkgs; [
+      obs-studio-plugins.wlrobs
+      obs-studio-plugins.obs-websocket
+      obs-studio-plugins.obs-multi-rtmp
+      obs-studio-plugins.obs-move-transition
+      obs-studio-plugins.advanced-scene-switcher
+    ];
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
