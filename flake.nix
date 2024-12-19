@@ -71,7 +71,6 @@
       daniel = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./home-manager/daniel ];
-        sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         pkgs = pkgsFor.x86_64-linux;
       };
     };
