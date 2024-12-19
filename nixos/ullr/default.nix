@@ -226,7 +226,7 @@ in
     age.generateKey = true;
     age.keyFile = ageKeyFile;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-    defaultSopsFile = ./secrets/example.yaml;
+    defaultSopsFile = ./secrets/example.sops.yaml;
     secrets."myservice/my_subdir/my_secret" = {};
   };
 
