@@ -22,10 +22,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, sops-nix, plasma-manager, ... }@inputs:
   let
     inherit (self) outputs;
 
@@ -65,6 +71,7 @@
       daniel = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
         modules = [ ./home-manager/daniel ];
+        sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         pkgs = pkgsFor.x86_64-linux;
       };
     };
