@@ -17,7 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sugar-candy.url = "github:zhaith-izaliel/sddm-sugar-candy-nix";
+    sugar-candy = {
+      url = "github:zhaith-izaliel/sddm-sugar-candy-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     hardware.url = "github:nixos/nixos-hardware";
   };
@@ -48,9 +51,10 @@
     nixosConfigurations = {
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ 
-          ./nixos/ullr
+        modules = [
+          sugar-candy.nixosModules.default
           sops-nix.nixosModules.sops
+          ./nixos/ullr
         ];
       };
       generic = nixpkgs.lib.nixosSystem {
