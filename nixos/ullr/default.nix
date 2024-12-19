@@ -262,7 +262,6 @@ in
     mc
     neovim
     nerdfonts
-    obs-studio
     ripgrep
     steam
     sops

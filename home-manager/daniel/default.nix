@@ -116,6 +116,7 @@ in
      k9s
      kubectl
      lazygit
+     obs-studio
      nerdfonts
      syncthing
      vcluster
