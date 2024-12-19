@@ -244,7 +244,7 @@ in
 
   programs.direnv.enable = true;
   programs.lazygit.enable = true;
-  programs.obs-studio {
+  programs.obs-studio = {
     enable = true;
     plugins = with pkgs; [
       obs-studio-plugins.wlrobs
