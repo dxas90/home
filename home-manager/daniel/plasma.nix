@@ -1,3 +1,4 @@
+{ inputs, outputs, config, pkgs, ... }:
 {
   programs.plasma = {
     enable = true;
@@ -404,8 +405,8 @@
       "katerc"."KTextEditor View"."Word Completion" = true;
       "katerc"."KTextEditor View"."Word Completion Minimal Word Length" = 3;
       "katerc"."KTextEditor View"."Word Completion Remove Tail" = true;
-      "katerc"."KTextEditor::Search"."Replace History" = ".,', mkdir -p ,esphome,,    # networks:\n    #   ip-vlan:\n    #     ipv4_address: 10.168.1.110, -x ,  ,MY_DATABASE,/home/daniel/Videos/More-Resources/,/home/daniel/C0D3/Tools/tor-browser/Browser/TorBrowser/Data/Tor,/home/daniel/C0D3/Tools/tor-browser,/home/daniel/C0D3/Tools/tor-browser/,DOMINIO,TOKEN";
-      "katerc"."KTextEditor::Search"."Search History" = "]\n    ,\",file:///run/media/daniel/home/daniel/,hubble-ui,sudo ,    networks:\n      ip-vlan:\n        ipv4_address: 10.168.1.110,\n,core_updater_buildbot_url,    ,immich,E:/Tools/OBS-Studio-27.0.1-Full-x64/More-Resources/,b-3755312b-f6f7-4673-ad0f-23ac03d31bf7.mq.us-east-1.amazonaws.com,E:\\\\Tools\\\\TorBrowser\\\\Browser\\\\TorBrowser\\\\Data\\\\Tor,\"$(dirname \"$*\")\",heal,actua,FANATYX_JWT_SECRET,TWILIO_ACCOUNT_SID,Disk,[a-z]d[\\\\D]$|nvme[\\\\d]n[\\\\d]$,search doman,proxmox,power,dxas90,e57bc23d-1778-4cfe-a177-21961efecc61,WAN,ALU_COM,TR069_INTERNET_R_VID_100,pon_100_,\\\\:\\\\w\\\\w[\\\\:\\\\w\\\\w]+,70:3e:97:89:69:18,xnet-acs-nk,100,PON,SIP,LIN,\\\\:\\\\w\\\\w,\\\\:\\\\d\\\\d,MAC,MS-chap,PAP,chap,:,PPPoE,mac,SNI,GPON,44,1234567890ABCDEF1234,44454641554C54,Nokia,MTK7528,OLT,\" ckn=\"key3\"></PreSharedKey>,PreSharedKey,VIVACOM_FiberNet_A330,LOID,telnet,SLID,Authentication,Password,TR-069";
+      "katerc"."KTextEditor::Search"."Replace History" = "";
+      "katerc"."KTextEditor::Search"."Search History" = "";
       "katerc"."Konsole"."AutoSyncronize" = true;
       "katerc"."Konsole"."KonsoleEscKeyBehaviour" = true;
       "katerc"."Konsole"."KonsoleEscKeyExceptions" = "vi,vim,nvim,git";
@@ -1083,7 +1084,7 @@
       "spectaclerc"."General"."clipboardGroup" = "PostScreenshotCopyLocation";
       "spectaclerc"."General"."launchAction" = "DoNotTakeScreenshot";
       "spectaclerc"."GuiConfig"."captureMode" = 0;
-      "spectaclerc"."ImageSave"."lastImageSaveLocation" = "file:///home/daniel/Pictures/Screenshot_20240420_190210.png";
+      "spectaclerc"."ImageSave"."lastImageSaveLocation" = "";
       "spectaclerc"."ImageSave"."translatedScreenshotsFolder" = "Screenshots";
       "spectaclerc"."VideoSave"."preferredVideoFormat" = 0;
       "spectaclerc"."VideoSave"."translatedScreencastsFolder" = "Screencasts";
@@ -1198,8 +1199,8 @@
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."MatchCase" = false;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Place" = 1;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Recursive" = true;
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Replaces" = "192.168.1.120";
-      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Search" = "pgvecto-rs:pg14-v0.2.0@sha256:90724186f0a3517cf6914295b5ab410db9ce23190a2d9d0b9dd6463e3fa298f0,registry.hub.docker.com/tensorchord/pgvecto-rs:pg14-v0.2.0@sha256:";
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Replaces" = "";
+      "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."Search" = "";
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeAllProjects" = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeCurrentFile" = true;
       "kate/anonymous.katesession"."Plugin:katesearchplugin:MainWindow:0"."SearchAsYouTypeFolder" = true;
