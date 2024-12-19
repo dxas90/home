@@ -235,6 +235,7 @@ in
     age-plugin-yubikey
     appimage-run
     aria2
+    bat
     brave
     bc
     btop
