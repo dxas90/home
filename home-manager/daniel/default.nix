@@ -6,7 +6,7 @@ in
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
-    ./plasma.nix
+    # ./plasma.nix
   ];
   ##################################################
   #                 BASIC SETTINGS                 #
