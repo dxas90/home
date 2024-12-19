@@ -252,6 +252,7 @@ in
     gnumake
     htop
     jq
+    kdePackages.kleopatra
     kdePackages.qtwayland
     killall
     libfido2
@@ -262,6 +263,7 @@ in
     mc
     neovim
     nerdfonts
+    onlyoffice-desktopeditors
     ripgrep
     steam
     sops

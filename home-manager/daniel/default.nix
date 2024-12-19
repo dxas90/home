@@ -116,8 +116,10 @@ in
      k9s
      kubectl
      lazygit
+     lens
      nerdfonts
      syncthing
+     tor-browser
      vcluster
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -245,7 +247,7 @@ in
   programs.direnv.enable = true;
   programs.lazygit.enable = true;
   programs.obs-studio = {
-    enable = true;
+    enable = false;
     plugins = with pkgs; [
       obs-studio-plugins.wlrobs
       obs-studio-plugins.obs-websocket
