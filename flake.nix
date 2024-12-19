@@ -52,8 +52,6 @@
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          inputs.sugar-candy.nixosModules.default
-          inputs.sops-nix.nixosModules.sops
           ./nixos/ullr
         ];
       };

@@ -134,7 +134,7 @@ in
     enable = true;
     wayland.enable = true;
     sugarCandyNix = {
-      # enable = true;
+      enable = true;
       settings = {
         # TODO: Check if this is good
         PartialBlur = true;
