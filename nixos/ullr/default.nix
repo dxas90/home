@@ -132,6 +132,7 @@ in
 
   services.displayManager.sddm = {
     enable = true;
+    autoNumlock = true;
     wayland.enable = true;
     sugarCandyNix = {
       enable = true;
@@ -253,6 +254,7 @@ in
     jq
     kdePackages.qtwayland
     killall
+    libfido2
     lshw
     lsof
     lz4
