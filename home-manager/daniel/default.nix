@@ -259,9 +259,6 @@
       obs-studio-plugins.advanced-scene-switcher
     ];
   };
-  programs.gnupg.agent ={
-    enable = true;
-  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

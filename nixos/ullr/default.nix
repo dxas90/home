@@ -301,7 +301,9 @@ in
     enable = true;
     binfmt = true;
   };
-
+  programs.gnupg.agent ={
+    enable = true;
+  };
   virtualisation = {
     containers ={
       enable = true;
@@ -324,7 +326,7 @@ in
       defaultNetwork.settings.dns_enabled = true;
     };
     waydroid = {
-      enable = true;
+      enable = false;
     };
   };
 }
