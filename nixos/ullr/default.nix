@@ -73,30 +73,45 @@ in
   ###############################################
   #                 BOOT LOADER                 #
   ###############################################
-  boot.loader = {
-    systemd-boot = {
-      enable = false;
-      configurationLimit = 3;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
-    };
-    grub = {
-      efiSupport = true;
-      #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-      device = "nodev";
-      useOSProber = true;
-    };
-  };
-  boot.plymouth = {
-    enable = true;
-    theme = "colorful_loop";
-    themePackages = [
-      (pkgs.adi1090x-plymouth-themes.override {
-        selected_themes = [ "colorful_loop" ];
-      })
+  boot = {
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
     ];
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+    loader = {
+      timeout = 0;
+      systemd-boot = {
+        enable = false;
+        configurationLimit = 3;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+      };
+      grub = {
+        efiSupport = true;
+        #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        device = "nodev";
+        useOSProber = true;
+      };
+    };
+    plymouth = {
+      enable = true;
+      theme = "infinite_seal";
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "infinite_seal" ];
+        })
+      ];
+    };
   };
 
   boot.kernel.sysctl = { 
@@ -181,6 +196,7 @@ in
   # hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   ####################################################
   #                 USER APPLICATION                 #
