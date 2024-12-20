@@ -21,11 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sugar-candy = {
-      url = "github:zhaith-izaliel/sddm-sugar-candy-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hardware.url = "github:nixos/nixos-hardware";
   };
 

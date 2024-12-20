@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.sugar-candy.nixosModules.default
     inputs.sops-nix.nixosModules.sops
   ];
 

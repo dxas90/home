@@ -4,7 +4,6 @@ let
 in
 {
   imports = [
-    inputs.sugar-candy.nixosModules.default
     inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
     ./secrets.nix
@@ -149,26 +148,6 @@ in
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
-    sugarCandyNix = {
-      enable = true;
-      settings = {
-        # TODO: Check if this is good
-        PartialBlur = true;
-        # FullBlur = true;
-        # BlurRadius = 35;
-        ScreenWidth = 1920;
-        ScreenHeight = 1200;
-        # MainColor = "#7EBAE4";
-        MainColor = "#B3BEC7";
-        AccentColor = "#F2F2E9";
-        BackgroundColor = "#000000";
-        # ScaleImageCropped = false;
-        HaveFormBackground = true;
-        Background = lib.cleanSource ./norway-river-view.jpg;
-        HeaderText = "nivem";
-        Font = "CaskaydiaCove NF";
-      };
-    };
   };
 
   services.displayManager.defaultSession = "plasma";

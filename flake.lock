@@ -90,8 +90,7 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "sops-nix": "sops-nix",
-        "sugar-candy": "sugar-candy"
+        "sops-nix": "sops-nix"
       }
     },
     "sops-nix": {
@@ -111,26 +110,6 @@
       "original": {
         "owner": "Mic92",
         "repo": "sops-nix",
-        "type": "github"
-      }
-    },
-    "sugar-candy": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1733234385,
-        "narHash": "sha256-mY4SRvZipWIdX1eY6abP60i5h/MZkI1ZTGDO57d+p+o=",
-        "owner": "zhaith-izaliel",
-        "repo": "sddm-sugar-candy-nix",
-        "rev": "3c3800015ede18b268d1505cfc1488a24103d38a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zhaith-izaliel",
-        "repo": "sddm-sugar-candy-nix",
         "type": "github"
       }
     }

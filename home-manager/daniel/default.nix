@@ -1,7 +1,6 @@
 { inputs, outputs, config, pkgs, ... }:
 let
   homeDirectory = "/home/daniel";
-  ageKeyFile = "${homeDirectory}/.config/sops/age/keys.txt";
 in
 {
   ##################################################
