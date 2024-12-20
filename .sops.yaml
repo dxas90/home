@@ -5,11 +5,9 @@
 keys:
   - &ace1 age1rlqpy6jy8kjfpwa2qce4gwgr8gqjez9fdxllq9xzcvmwx3gw8glqcffgm0
   - &ace2 age17nr093c37k5732q9ksxf2p785wd9fxjej7axzcn66lm6muys0eks9kmzts
-  - &yubi2 age1yubikey1q2tun6g2cwu3wzr93k9lcxapetj68a84glaxeyxd60ej05q8z0yguv3wwj3
 creation_rules:
   - path_regex: .*\.sops\.(ya?ml|json|env|ini)$
     key_groups:
       - age:
           - *ace1
           - *ace2
-          - *yubi2
