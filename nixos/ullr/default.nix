@@ -1,13 +1,13 @@
 { inputs, outputs, lib, config, pkgs, ... }:
 let
   ifGroupsExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
-  ageKeyFile = "${config.users.users.daniel.home}/.config/sops/age/keys.txt";
 in
 {
   imports = [
-    ./hardware-configuration.nix
     inputs.sugar-candy.nixosModules.default
     inputs.sops-nix.nixosModules.sops
+    ./hardware-configuration.nix
+    ./secrets.nix
   ];
 
   ################################################
@@ -236,14 +236,6 @@ in
       sansSerif = [ "Ubuntu Sans" ];
       monospace = [ "CaskaydiaCove NF" ];
     };
-  };
-
-  sops = {
-    age.generateKey = true;
-    age.keyFile = ageKeyFile;
-    age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
-    defaultSopsFile = ./secrets/example.sops.yaml;
-    secrets."myservice/my_subdir/my_secret" = {};
   };
 
   environment.systemPackages = with pkgs; [
