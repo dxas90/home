@@ -245,7 +245,11 @@ in
 #    enable = true;
 #  };
 
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
   programs.lazygit.enable = true;
   programs.obs-studio = {
     enable = false;
