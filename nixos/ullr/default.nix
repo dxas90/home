@@ -263,6 +263,7 @@ in
     wget
     x11_ssh_askpass
     yakuake
+    yubikey-manager
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
