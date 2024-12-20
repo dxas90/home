@@ -4,10 +4,6 @@ let
   ageKeyFile = "${homeDirectory}/.config/sops/age/keys.txt";
 in
 {
-  imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
-    # ./plasma.nix
-  ];
   ##################################################
   #                 BASIC SETTINGS                 #
   ##################################################
@@ -44,8 +40,11 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
-  programs.bash.enable = true;
-  programs.bash.bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
+  programs.bash = {
+    enable = true;
+    historyControl = [ "ignoredups" "ignorespace" ];
+    bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
+  };
 
   programs.git = {
     enable = true;
