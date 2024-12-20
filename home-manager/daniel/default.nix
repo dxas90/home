@@ -1,7 +1,4 @@
 { inputs, outputs, config, pkgs, ... }:
-let
-  homeDirectory = "/home/daniel";
-in
 {
   ##################################################
   #                 BASIC SETTINGS                 #
@@ -27,7 +24,8 @@ in
   # manage.
 
   home.username = "daniel";
-  home.homeDirectory = homeDirectory;
+  home.homeDirectory = "/home/daniel";
+
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
 
@@ -260,6 +258,9 @@ in
       obs-studio-plugins.obs-move-transition
       obs-studio-plugins.advanced-scene-switcher
     ];
+  };
+  programs.gnupg.agent ={
+    enable = true;
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -51,13 +51,14 @@
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-        catppuccin.nixosModules.catppuccin
           ./nixos/ullr
         ];
       };
       generic = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
-        modules = [ ./nixos/generic-vm ];
+        modules = [
+          ./nixos/generic-vm
+        ];
       };
     };
 

@@ -250,6 +250,7 @@ in
     neovim
     nerdfonts
     onlyoffice-desktopeditors
+    pinentry-curses
     ripgrep
     steam
     sops
