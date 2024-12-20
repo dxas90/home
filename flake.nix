@@ -9,6 +9,11 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # sops-nix - secrets with mozilla sops
     # https://github.com/Mic92/sops-nix
@@ -31,7 +36,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, plasma-manager, ... }@inputs:
+  outputs = { self, nixpkgs, catppuccin, home-manager, sops-nix, plasma-manager, ... }@inputs:
   let
     inherit (self) outputs;
 
@@ -58,6 +63,7 @@
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
+        catppuccin.nixosModules.catppuccin
           ./nixos/ullr
         ];
       };
@@ -70,7 +76,10 @@
     homeConfigurations = {
       daniel = home-manager.lib.homeManagerConfiguration {
         extraSpecialArgs = { inherit inputs outputs; };
-        modules = [ ./home-manager/daniel ];
+        modules = [
+          catppuccin.homeManagerModules.catppuccin
+          ./home-manager/daniel
+        ];
         pkgs = pkgsFor.x86_64-linux;
       };
     };
