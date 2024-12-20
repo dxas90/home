@@ -251,6 +251,7 @@ in
     nerdfonts
     onlyoffice-desktopeditors
     pinentry-curses
+    pinentry-qt
     ripgrep
     steam
     sops
