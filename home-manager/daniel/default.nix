@@ -114,6 +114,7 @@ in
      devspace
      k3d
      k9s
+     krita
      kubectl
      lazygit
      lens
