@@ -12,7 +12,6 @@
     
     catppuccin = {
       url = "github:catppuccin/nix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # sops-nix - secrets with mozilla sops
