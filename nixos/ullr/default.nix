@@ -193,10 +193,9 @@ in
   hardware.pulseaudio.enable = false;
 
   # NVIDIA
-  # hardware.graphics.enable = true;
+  hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
   ####################################################
   #                 USER APPLICATION                 #
