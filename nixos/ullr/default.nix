@@ -327,8 +327,8 @@ in
       dockerCompat = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    waydroid = {
-      enable = false;
-    };
+    # waydroid = {
+    #   enable = false;
+    # };
   };
 }
