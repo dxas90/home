@@ -64,14 +64,13 @@ pkgs.mkShellNoCC {
     jupyter
     python312Packages.matplotlib
     python312Packages.numpy
+    python312Packages.pip
     python312Packages.requests
     python312Packages.selenium
     python312Packages.virtualenv
   ];
   LANGUAGE="en_US";
   shellHook = ''
-    (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
-    source .venv/bin/activate
     jupyter lab --browser any --ContentsManager.allow_hidden=True
   '';
 }
