@@ -233,7 +233,7 @@
     EDITOR = "nvim";
     GS_OPTIONS = "-sPAPERSIZE=a4";
     GIT_SSH_COMMAND = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i \${HOME}/.ssh/id_ed25519";
-    MY_SHELL = \$(basename \$(readlink /proc/\$\$/exe));
+    MY_SHELL = "\$(basename \$(readlink /proc/\$\$/exe))";
     DOCKER_CLI_EXPERIMENTAL = "enabled";
   };
 
