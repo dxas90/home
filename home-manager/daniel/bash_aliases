@@ -57,13 +57,14 @@ in
 
 pkgs.mkShellNoCC {
   packages = with pkgs; [
+    chromedriver
     jupyter
   ];
   LANGUAGE="en_US";
   shellHook = ''
     (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
     source .venv/bin/activate
-    pip install -U numpy pandas matplotlib scikit-learn requests pip
+    pip install -U numpy pandas matplotlib requests pip
     jupyter lab --browser any --ContentsManager.allow_hidden=True
   '';
 }
