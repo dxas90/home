@@ -171,10 +171,26 @@ in
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    #package = pkgs.bluez5-experimental;
+    package = pkgs.bluez;
+    settings.Policy.AutoEnable = "true";
+    settings.General = {
+        Enable = "Source,Sink,Media,Socket";
+        Name = "Ullr";
+        ControllerMode = "dual";
+        FastConnectable = "true";
+        Experimental = "true";
+        KernelExperimental = "true";
+    };
+  };
   # NVIDIA
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
+  services.blueman.enable = true;
 
   ####################################################
   #                 USER APPLICATION                 #
@@ -223,8 +239,10 @@ in
     appimage-run
     aria2
     bat
-    brave
     bc
+    bluez
+    bluez-tools
+    brave
     btop
     curl
     direnv
@@ -254,14 +272,14 @@ in
     pinentry-qt
     python3
     ripgrep
-    steam
     sops
     starship
+    steam
     vlc
     waydroid
     wezterm
-    wireguard-tools
     wget
+    wireguard-tools
     x11_ssh_askpass
     yakuake
     yubikey-manager
