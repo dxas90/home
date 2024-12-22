@@ -51,7 +51,7 @@ new_venv() {
 new_lab() {
   new_venv
   nix-shell -p jupyter
-  pip install -U numpy pandas matplotlib scikit-learn requests jupyterlab pip
+  pip install -U numpy pandas matplotlib scikit-learn requests pip
   jupyter lab --browser any
 }
 
