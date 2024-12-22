@@ -1,0 +1,63 @@
+alias aria2c='/usr/bin/aria2c --summary-interval 0 -x 10 -c -s 10 -k 1M -j 10 -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" --save-cookies=/tmp/aria2c_cookies '
+alias docwget='/usr/bin/wget -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" -c -k -r '
+alias fix-ssh='killall ssh-agent; SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"; export SSH_AUTH_SOCK; ssh-agent -a $SSH_AUTH_SOCK; ssh-add'
+alias fixgpu='rm -rf /home/daniel/.config/google-chrome/GrShaderCache/* /home/daniel/.config/google-chrome/ShaderCache/* /home/daniel/.steam/steam/config/htmlcache/* /home/daniel/.steam/steam/steamapps/shadercache/* /home/daniel/.steam/steam/appcache/httpcache/*' rm -rf /home/daniel/.steam/steam/steamapps/shadercache/* /home/daniel/.steam/steam/cached/* /home/daniel/.steam/steam/depotcache/* /home/daniel/.steam/steam/appcache/httpcache/*
+alias gpass='< /dev/urandom tr -dc A-Za-z0-9\$\^\!\@\.\- | head -c25; echo'
+alias k=kubectl
+alias l='ls -CF'
+alias la='ls -A'
+alias lg='lazygit'
+alias ll='ls -la'
+alias lst='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|/'"'"
+alias make_pass='pwgen -N 1 -y -n -s 17 5 | awk "{print $1}"'
+alias minicom='/bin/minicom -w -t xterm -l -R UTF-8'
+alias my_lab='mkdir -p ~/C0D3/Python; cd ~/C0D3/Python && new_lab'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias new_lab='new_venv && pip install -U numpy pandas matplotlib scikit-learn requests jupyterlab && jupyter lab --browser any'
+alias new_ssh='ssh-keygen -t ed25519 -b 4096 -P "" -f '
+alias newtemp='cd $(mktemp -d)'
+alias now_='date +%Y%m%d_%H%M%S'
+alias owget='/usr/bin/wget -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" -c -k -r -nd -l 4'
+alias pip-upgrade-all='pip freeze --local | grep -v "^\-e" | cut -d = -f 1  | xargs -n1 pip install -U'
+alias rkwin='DISPLAY=:0 kwin --replace > /tmp/rkwin 2>&1 &'
+alias run_now='systemctl list-units --type=service --state=running'
+alias sepa='find * -maxdepth 0 -type d -exec sh -c "test -e {}.tar.bz || tar cjvf {}.tar.bz {}" \;'
+alias t=task
+alias tama='find * -maxdepth 0 -type f -exec du -sh {} \;'
+alias wget='/usr/bin/wget -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" -c '
+alias youd="yt-dlp --no-playlist -f 'bestvideo[height<=?1080]+bestaudio/best' -o '%(title)s.%(ext)s'"
+
+mkcd() { mkdir $1 && cd $1; }
+myrsync() {
+  echo "Sincronizando $1 en $2"
+  rsync "$1" "$2" -Pahv --prune-empty-dirs --ignore-errors --ignore-existing --exclude="*~" && echo "Todo OK" || echo "NOOO Todo esta OK"
+}
+aget() {
+  apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends $@ | grep "^\w")
+}
+hazle() {
+  find . -type f -name "$2" -print0 | xargs -0 $1
+}
+daysago() {
+  date --date="$1 day ago" +%Y-%m-%d
+}
+xscp() {
+  rsync -Pav -e "ssh $1 $2" "$3" "$4"
+}
+new_venv() {
+  (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
+  source .venv/bin/activate
+}
+new_ansible_role() {
+  #    test $1 && mkdir -p $1.role/{vars,handlers,tasks,defaults,meta} || mkdir -p  new.role/{vars,handlers,tasks,defaults,meta}
+  mkdir -p roles/$1/{tasks,handlers,templates,files,vars,defaults,meta}
+  touch roles/$1/tasks/main.yml       #  <-- tasks file can include smaller files if warranted
+  touch roles/$1/handlers/main.yml    #  <-- handlers file
+  touch roles/$1/templates/$1.conf.j2 #  <------- templates end in .j2
+  touch roles/$1/files/helper.sh      #  <-- script files for use with the script resource
+  touch roles/$1/vars/main.yml        #  <-- variables associated with this role
+  touch roles/$1/defaults/main.yml    #  <-- default lower priority variables for this role
+  touch roles/$1/meta/main.yml        #  <-- role dependencies
+}
+
+# ex: ts=4 sw=4 et filetype=sh

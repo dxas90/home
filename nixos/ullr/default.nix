@@ -252,6 +252,7 @@ in
     onlyoffice-desktopeditors
     pinentry-curses
     pinentry-qt
+    python3
     ripgrep
     steam
     sops

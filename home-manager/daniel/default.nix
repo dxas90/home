@@ -110,6 +110,7 @@
   # environment.
   home.packages =  with pkgs; [
      devspace
+     go-task
      k3d
      k9s
      krita
@@ -203,6 +204,8 @@
     -- and finally, return the configuration to wezterm
     return config
     '';
+    ".bash_aliases".source = ./bash_aliases;
+    ".face".source = ./.face
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -230,12 +233,14 @@
     EDITOR = "nvim";
     GS_OPTIONS = "-sPAPERSIZE=a4";
     GIT_SSH_COMMAND = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i \${HOME}/.ssh/id_ed25519";
+    MY_SHELL = \$(basename \$(readlink /proc/\$\$/exe));
+    DOCKER_CLI_EXPERIMENTAL = "enabled";
   };
 
   home.shellAliases = {
     g = "git";
     "..." = "cd ../..";
-    hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";
+    hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";    
   };
 
   # services
