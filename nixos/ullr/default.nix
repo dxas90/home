@@ -174,8 +174,6 @@ in
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
-    #package = pkgs.bluez5-experimental;
-    package = pkgs.bluez;
     settings.Policy.AutoEnable = "true";
     settings.General = {
         Enable = "Source,Sink,Media,Socket";
@@ -240,8 +238,6 @@ in
     aria2
     bat
     bc
-    bluez
-    bluez-tools
     brave
     btop
     curl
