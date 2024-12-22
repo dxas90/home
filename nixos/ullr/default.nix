@@ -188,7 +188,7 @@ in
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
-  services.blueman.enable = true;
+  services.blueman.enable = false;
 
   ####################################################
   #                 USER APPLICATION                 #
