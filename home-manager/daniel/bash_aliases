@@ -62,17 +62,51 @@ pkgs.mkShellNoCC {
     geckodriver
     google-chrome
     jupyter
+    python312Packages.matplotlib
+    python312Packages.numpy
+    python312Packages.requests
     python312Packages.selenium
+    python312Packages.virtualenv
   ];
   LANGUAGE="en_US";
   shellHook = ''
-    (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
+    (source .venv/bin/activate >/dev/null 2>&1 || python3 -m virtualenv --prompt virtualenv .venv)
     source .venv/bin/activate
-    pip install -U matplotlib numpy pandas pip requests
     jupyter lab --browser any --ContentsManager.allow_hidden=True
   '';
 }
 EOF
+}
+
+
+
+with import <nixpkgs> {};
+
+let
+  python = let 
+    packageOverrides = prev: final: {
+      selenium = final.selenium.overridePythonAttrs (old: {
+        src = fetchFromGitHub {
+          owner = "SeleniumHQ";
+          repo = "selenium";
+          rev = "refs/tags/selenium-4.8.0";
+          hash = "sha256-YTi6SNtTWuEPlQ3PTeis9osvtnWmZ7SRQbne9fefdco=";
+        };
+        postInstall = ''
+          install -Dm 755 ../rb/lib/selenium/webdriver/atoms/getAttribute.js $out/${python3Packages.python.sitePackages}/selenium/webdriver/remote/getAttribute.js
+          install -Dm 755 ../rb/lib/selenium/webdriver/atoms/isDisplayed.js $out/${python3Packages.python.sitePackages}/selenium/webdriver/remote/isDisplayed.js
+        '';
+      });
+    }; in python3.override { inherit packageOverrides; };
+in mkShell {
+  packages = [
+    (python.withPackages (
+      ps: with ps; [
+	pandas
+	requests
+	selenium
+      ]))
+  ];
 }
 
 mylab() {

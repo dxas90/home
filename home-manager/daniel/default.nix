@@ -235,6 +235,7 @@
     GIT_SSH_COMMAND = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i \${HOME}/.ssh/id_ed25519";
     MY_SHELL = "\$(basename \$(readlink /proc/\$\$/exe))";
     DOCKER_CLI_EXPERIMENTAL = "enabled";
+    NIXPKGS_ALLOW_UNFREE = "1";
   };
 
   home.shellAliases = {
