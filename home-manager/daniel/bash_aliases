@@ -11,9 +11,7 @@ alias ll='ls -la'
 alias lst='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|/'"'"
 alias make_pass='pwgen -N 1 -y -n -s 17 5 | awk "{print $1}"'
 alias minicom='/bin/minicom -w -t xterm -l -R UTF-8'
-alias my_lab='mkdir -p ~/C0D3/Python; cd ~/C0D3/Python && new_lab'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias new_lab='new_venv && pip install -U numpy pandas matplotlib scikit-learn requests jupyterlab && jupyter lab --browser any'
 alias new_ssh='ssh-keygen -t ed25519 -b 4096 -P "" -f '
 alias newtemp='cd $(mktemp -d)'
 alias now_='date +%Y%m%d_%H%M%S'
@@ -44,10 +42,25 @@ daysago() {
 xscp() {
   rsync -Pav -e "ssh $1 $2" "$3" "$4"
 }
+
 new_venv() {
   (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
   source .venv/bin/activate
 }
+
+new_lab() {
+  new_venv
+  nix-shell -p jupyter
+  pip install -U numpy pandas matplotlib scikit-learn requests jupyterlab pip
+  jupyter lab --browser any
+}
+
+my_lab() {
+  mkdir -p ~/C0D3/Python
+  cd ~/C0D3/Python
+  new_lab
+}
+
 new_ansible_role() {
   #    test $1 && mkdir -p $1.role/{vars,handlers,tasks,defaults,meta} || mkdir -p  new.role/{vars,handlers,tasks,defaults,meta}
   mkdir -p roles/$1/{tasks,handlers,templates,files,vars,defaults,meta}
