@@ -73,6 +73,7 @@ cat <<EOF > shell.nix
 my_lab() {
   mkdir -p ~/C0D3/Python
   cd ~/C0D3/Python
+  new_lab
   nix-shell
 }
 
