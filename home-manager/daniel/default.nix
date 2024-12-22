@@ -205,7 +205,7 @@
     return config
     '';
     ".bash_aliases".source = ./bash_aliases;
-    ".face".source = ./.face
+    ".face".source = ./.face;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
