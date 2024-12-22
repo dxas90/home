@@ -62,12 +62,13 @@ pkgs.mkShellNoCC {
     geckodriver
     google-chrome
     jupyter
+    python312Packages.selenium
   ];
   LANGUAGE="en_US";
   shellHook = ''
     (source .venv/bin/activate >/dev/null 2>&1 || python3 -m venv --prompt virtualenv .venv)
     source .venv/bin/activate
-    pip install -U matplotlib numpy pandas pip requests selenium
+    pip install -U matplotlib numpy pandas pip requests
     jupyter lab --browser any --ContentsManager.allow_hidden=True
   '';
 }
