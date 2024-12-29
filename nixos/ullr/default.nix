@@ -189,6 +189,7 @@ in
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
   services.blueman.enable = false;
+  services.colord.enable = true;
 
   ####################################################
   #                 USER APPLICATION                 #
