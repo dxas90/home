@@ -252,6 +252,7 @@ in
     gnumake
     htop
     jq
+    kdePackages.colord-kde
     kdePackages.kleopatra
     kdePackages.qtwayland
     killall
