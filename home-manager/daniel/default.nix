@@ -103,8 +103,6 @@
       push.followTags = true;
       receive.advertisePushOptions = true;
       receive.procReceiveRefs = "refs/for";
-      user.email = "dxas90@gmail.com";
-      user.name = "dxas90";
     };
   };
 
