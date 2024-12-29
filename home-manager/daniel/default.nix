@@ -109,15 +109,23 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages =  with pkgs; [
+    #  audacity
+    #  blender
      devspace
+    #  famistudio
+     git-credential-keepassxc
      go-task
+     godot_4
      k3d
      k9s
+     keepassxc
+     kopia
      krita
      kubectl
      lazygit
      lens
      nerdfonts
+     obsidian
      syncthing
      tor-browser
      vcluster
