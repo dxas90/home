@@ -51,7 +51,6 @@
       ullr = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          <home-manager/nixos>
           ./nixos/ullr
         ];
       };

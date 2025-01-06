@@ -251,6 +251,7 @@ in
     gettext
     git
     gnumake
+    home-manager
     htop
     jq
     kdePackages.colord-kde
@@ -308,6 +309,7 @@ in
   programs.neovim.enable = true;
   programs.git.enable = true;
   programs.gamemode.enable = true;
+  programs.home-manager.enable = true;
 
   programs.steam = {
     enable = true;
