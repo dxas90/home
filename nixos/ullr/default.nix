@@ -6,7 +6,7 @@ in
   imports = [
     inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
-    ./secrets.nix
+    # ./secrets.nix
   ];
 
   ################################################
