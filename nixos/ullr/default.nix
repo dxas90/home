@@ -200,7 +200,7 @@ in
     isNormalUser = true;
     openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl {
       url = https://github.com/dramirez-qb.keys;
-      sha256 = "621341ff4df62480eac9092e449ac565ac3440b68ae373a78b37c0ca4577e5d2";
+      sha256 = "84b34e33be4cce737a6260f980062618f711d7a23e925dbf2c258ee175837fc2";
     });
     extraGroups = [
       "networkmanager"
