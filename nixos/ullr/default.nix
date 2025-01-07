@@ -97,7 +97,7 @@ in
       grub = {
         efiSupport = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        device = "/dev/disk/by-uuid/E7F0-A36A";
+        device = "/dev/sda";
         useOSProber = true;
       };
     };
