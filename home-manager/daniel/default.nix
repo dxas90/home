@@ -214,6 +214,10 @@
     '';
     ".bash_aliases".source = ./bash_aliases;
     ".face".source = ./.face;
+    "~/.config/lazygit/config.yml".text = ''
+    disableStartupPopups: true
+    reporting: "off"
+    '';
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
