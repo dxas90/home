@@ -87,17 +87,17 @@ in
     loader = {
       timeout = 0;
       systemd-boot = {
-        enable = false;
         configurationLimit = 3;
+        enable = false;
       };
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+        # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
       };
       grub = {
         efiSupport = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        device = "nodev";
+        # device = "nodev";
         useOSProber = true;
       };
     };
