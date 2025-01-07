@@ -88,18 +88,19 @@ in
       timeout = 0;
       systemd-boot = {
         configurationLimit = 3;
-        enable = false;
+        enable = true;
       };
       efi = {
-        # canTouchEfiVariables = true;
-        # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
       };
       grub = {
-        enable = true;
+        enable = false;
         efiSupport = true;
-        efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+        # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
         device = "/dev/sda";
         useOSProber = true;
+        configurationLimit = 3;
       };
     };
     plymouth = {
