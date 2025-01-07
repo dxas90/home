@@ -97,7 +97,7 @@ in
       grub = {
         efiSupport = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        device = "/dev/disk/by-id/ata-KINGSTON_SA400S37240G_50026B7784FDC197";
+        device = "/dev/disk/by-uuid/E7F0-A36A";
         useOSProber = true;
       };
     };
