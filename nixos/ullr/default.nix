@@ -100,7 +100,7 @@ in
             efiDeviceHandle = "HD0b";
           };
         };
-        edk2-uefi-shell.enable = true;
+        edk2-uefi-shell.enable = false;
       };
       efi = {
         canTouchEfiVariables = true;
