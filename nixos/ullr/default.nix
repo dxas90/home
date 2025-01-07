@@ -63,6 +63,7 @@ in
   i18n.defaultLocale = "en_US.UTF-8";
 
   time.timeZone = "Europe/Sofia";
+  time.hardwareClockInLocalTime = true;
 
   networking.hostName = "ullr";
   networking.networkmanager.enable = true;
@@ -89,6 +90,17 @@ in
       systemd-boot = {
         configurationLimit = 3;
         enable = true;
+        # windows = {
+        #   "10-pro" = {
+        #     title = "Windows 10 Pro";
+        #     efiDeviceHandle = "FS1";
+        #   };
+        #   "11-pro" = {
+        #     title = "Windows 11 Pro";
+        #     efiDeviceHandle = "FS1";
+        #   };
+        # };
+        edk2-uefi-shell.enable = true;
       };
       efi = {
         canTouchEfiVariables = true;
