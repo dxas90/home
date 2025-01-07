@@ -97,7 +97,7 @@ in
       grub = {
         efiSupport = true;
         #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        # device = "nodev";
+        device = "/dev/disk/by-id/ata-KINGSTON_SA400S37240G_50026B7784FDC197";
         useOSProber = true;
       };
     };
