@@ -91,7 +91,7 @@ in
         enable = false;
       };
       efi = {
-        canTouchEfiVariables = true;
+        # canTouchEfiVariables = true;
         # efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
       };
       grub = {
