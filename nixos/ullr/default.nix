@@ -90,16 +90,16 @@ in
       systemd-boot = {
         configurationLimit = 3;
         enable = true;
-        # windows = {
-        #   "10-pro" = {
-        #     title = "Windows 10 Pro";
-        #     efiDeviceHandle = "FS1";
-        #   };
-        #   "11-pro" = {
-        #     title = "Windows 11 Pro";
-        #     efiDeviceHandle = "FS1";
-        #   };
-        # };
+        windows = {
+          "10-pro" = {
+            title = "Windows 10 Pro";
+            efiDeviceHandle = "HD2b65535a1";
+          };
+          "11-pro" = {
+            title = "Windows 11 Pro";
+            efiDeviceHandle = "HD0b";
+          };
+        };
         edk2-uefi-shell.enable = true;
       };
       efi = {
