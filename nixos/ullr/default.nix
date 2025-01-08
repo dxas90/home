@@ -202,6 +202,7 @@ in
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
+  hardware.nvidia-container-toolkit.enable = true;
   services.blueman.enable = false;
   services.colord.enable = true;
 
@@ -255,10 +256,11 @@ in
     bc
     brave
     btop
+    crc # https://crc.dev/
     curl
     direnv
-    docker
-    docker-buildx
+    # docker
+    # docker-buildx
     fd
     fzf
     gcc
@@ -283,13 +285,14 @@ in
     onlyoffice-desktopeditors
     pinentry-curses
     pinentry-qt
+    podman-desktop
     python3
     ripgrep
     sops
     starship
     steam
     vlc
-    waydroid
+    # waydroid
     wezterm
     wget
     wireguard-tools
@@ -344,6 +347,11 @@ in
     };
     docker = {
       enable = false;
+      rootless = {
+        enable = false;
+        setSocketVariable = true;
+      };
+      # https://docs.docker.com/reference/cli/dockerd/#daemon-configuration-file
       daemon.settings = {
         experimental = true;
         fixed-cidr-v6 = "fd00::/80";
@@ -352,11 +360,19 @@ in
         live-restore = true;
         metrics-addr = "0.0.0.0:9323";
         userland-proxy = false;
+        builder = {
+          gc = {
+            enabled = true;
+            defaultKeepStorage = "10GB";
+          };
+        };
       };
     };
     podman = {
+      autoPrune.enable = true;
       enable = true;
       dockerCompat = true;
+      dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
     # waydroid = {
