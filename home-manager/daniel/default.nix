@@ -128,7 +128,7 @@
      nerdfonts
      obsidian
      syncthing
-     teams
+     teams-for-linux
      telegram-desktop
      tor-browser
      vcluster
