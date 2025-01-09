@@ -127,6 +127,7 @@
      lens
      nerdfonts
      obsidian
+     qbittorrent
      syncthing
      teams-for-linux
      telegram-desktop
@@ -252,6 +253,7 @@
     g = "git";
     "..." = "cd ../..";
     hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";    
+    nsp = "nix-shell -p";
   };
 
   # services

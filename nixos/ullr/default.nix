@@ -272,6 +272,7 @@ in
     jq
     kdePackages.colord-kde
     kdePackages.kleopatra
+    kdePackages.plasma-vault
     kdePackages.qtwayland
     killall
     libfido2
