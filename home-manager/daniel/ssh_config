@@ -14,7 +14,7 @@ Host *.onion
 Host i-* mi-*
    UserKnownHostsFile      /dev/null
    StrictHostKeyChecking   no
-   GSSAPIAuthentication    no
+   #GSSAPIAuthentication    no
    LogLevel                ERROR
    AddressFamily           inet
    PasswordAuthentication  no
