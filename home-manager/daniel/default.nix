@@ -206,7 +206,7 @@
     '';
     ".bash_aliases".source = ./bash_aliases;
     ".face".source = ./.face;
-    "~/.config/lazygit/config.yml".text = ''
+    ".config/lazygit/config.yml".text = ''
     disableStartupPopups: true
     reporting: "off"
     '';
