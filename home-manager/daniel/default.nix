@@ -112,6 +112,7 @@
     #  audacity
     #  blender
      devspace
+     discord
     #  famistudio
      git-credential-keepassxc
      go-task
@@ -127,6 +128,8 @@
      nerdfonts
      obsidian
      syncthing
+     teams
+     telegram-desktop
      tor-browser
      vcluster
     # # It is sometimes useful to fine-tune packages, for example, by applying

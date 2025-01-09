@@ -1,8 +1,8 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
 if true then
-  return {{
-      "snacks.nvim",
+  return {
+   {"snacks.nvim",
       opts = {
           dashboard = {
               preset = {
@@ -16,8 +16,33 @@ if true then
                   ]]
               }
           }
-      }
-  }}
+      }},
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = { ensure_installed = { "terraform", "hcl" } },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        terraformls = {},
+      },
+    },
+  },
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "tflint" } },
+  },
+  {
+    "ANGkeith/telescope-terraform-doc.nvim",
+    ft = { "terraform", "hcl" },
+    config = function()
+      LazyVim.on_load("telescope.nvim", function()
+        require("telescope").load_extension("terraform_doc")
+      end)
+    end,
+  }
+ }
 end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
