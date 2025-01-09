@@ -1,0 +1,35 @@
+Host *
+  ServerAliveInterval 30
+  ServerAliveCountMax 120
+  StrictHostKeyChecking no
+  ControlMaster auto
+  ControlPath  ~/.ssh/control-socket-%r@%h-%p
+  ControlPersist 600  
+  AddKeysToAgent yes
+  ForwardAgent yes
+
+Host *.onion
+  ProxyCommand ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
+
+Host i-* mi-*
+   UserKnownHostsFile      /dev/null
+   StrictHostKeyChecking   no
+   GSSAPIAuthentication    no
+   LogLevel                ERROR
+   AddressFamily           inet
+   PasswordAuthentication  no
+   IdentitiesOnly          yes
+   IdentityFile            ~/.ssh/id_rsa
+   #ProxyCommand            aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p
+   ProxyCommand            aws ssm start-session --target %h
+   ControlMaster           auto
+   ControlPath             ~/.ssh/control:%h:%p:%r
+
+Include config.d/*
+
+Host knock_remote
+    HostName your.home.ip.or.dns
+    ServerAliveInterval 60
+    PermitLocalCommand yes
+    ProxyCommand bash -c '/usr/local/bin/knock %h 5700 5701 5702 5703; sleep 1; exec /usr/bin/nc %h %p'
+    LocalCommand bash -c '/usr/local/bin/knock %h 5703 5702 5701 5700; sleep 1'

@@ -186,20 +186,12 @@
         source = ./nvim;
         recursive = true;
     };
+
     ".wezterm.lua".text = ''
-    -- Pull in the wezterm API
     local wezterm = require 'wezterm'
-
-    -- This will hold the configuration.
     local config = wezterm.config_builder()
-
-    -- This is where you actually apply your config choices
-
-    -- For example, changing the color scheme:
     config.color_scheme = 'Catppuccin Mocha'
-
     --config.font = wezterm.font 'Symbols Nerd Font Mono'
-
     --config.webgpu_preferred_adapter = {
     --  backend = 'Vulkan',
     --  device = 9479,
@@ -209,10 +201,7 @@
     --  name = 'NVIDIA GeForce RTX 3050',
     --  vendor = 4318,
     --}
-
-    config.front_end = 'WebGpu'
-
-    -- and finally, return the configuration to wezterm
+    config.front_end = 'WebGpu
     return config
     '';
     ".bash_aliases".source = ./bash_aliases;
@@ -220,6 +209,12 @@
     "~/.config/lazygit/config.yml".text = ''
     disableStartupPopups: true
     reporting: "off"
+    '';
+    ".ssh/config".source = ./ssh_config;
+    ".ssh/config.d/github".text = ''
+    Host github.com
+      HostName github.com
+      User git
     '';
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
