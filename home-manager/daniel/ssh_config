@@ -8,6 +8,8 @@ Host *
   AddKeysToAgent yes
   ForwardAgent yes
 
+Include config.d/*
+
 Host *.onion
   ProxyCommand ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p
 
@@ -24,8 +26,6 @@ Host i-* mi-*
    ProxyCommand            aws ssm start-session --target %h
    ControlMaster           auto
    ControlPath             ~/.ssh/control:%h:%p:%r
-
-Include config.d/*
 
 Host knock_remote
     HostName your.home.ip.or.dns
