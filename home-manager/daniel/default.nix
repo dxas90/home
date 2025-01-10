@@ -111,6 +111,7 @@
   home.packages =  with pkgs; [
     #  audacity
     #  blender
+     devpod
      devspace
      discord
     #  famistudio
@@ -133,6 +134,7 @@
      telegram-desktop
      tor-browser
      vcluster
+     zoom-us
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of

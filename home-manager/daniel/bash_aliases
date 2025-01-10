@@ -51,7 +51,7 @@ new_venv() {
 new_lab() {
   cat <<EOF > shell.nix
 let
-  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/nixos-24.11";
+  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/master";
   pkgs = import nixpkgs { config = { allowUnfree = true; }; overlays = []; };
 in
 
