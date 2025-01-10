@@ -213,6 +213,9 @@
     disableStartupPopups: true
     reporting: "off"
     '';
+    ".config/environment.d/gsk.conf".text = ''
+    GSK_RENDERER=gl
+    '';
     ".ssh/config".source = ./ssh_config;
     ".ssh/config.d/github".text = ''
     Host github.com
