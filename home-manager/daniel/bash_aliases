@@ -25,7 +25,7 @@ alias tama='find * -maxdepth 0 -type f -exec du -sh {} \;'
 alias wget='/usr/bin/wget -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" -c '
 alias youd="yt-dlp --no-playlist -f 'bestvideo[height<=?1080]+bestaudio/best' -o '%(title)s.%(ext)s'"
 
-mkcd() { mkdir $1 && cd $1; }
+mkcd() { mkdir -p $1 && cd $1; }
 myrsync() {
   echo "Sincronizando $1 en $2"
   rsync "$1" "$2" -Pahv --prune-empty-dirs --ignore-errors --ignore-existing --exclude="*~" && echo "Todo OK" || echo "NOOO Todo esta OK"
