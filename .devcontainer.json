@@ -38,5 +38,6 @@
         }
     },
     "workspaceFolder": "/workspace",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+	"postCreateCommand": "nix flake --extra-experimental-features 'nix-command flakes' update"
 }
