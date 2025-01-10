@@ -111,7 +111,7 @@
   home.packages =  with pkgs; [
     #  audacity
     #  blender
-     devpod
+     devpod-desktop
      devspace
      discord
     #  famistudio
