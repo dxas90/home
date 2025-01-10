@@ -1,0 +1,23 @@
+{
+    "name": "Nix Flake Dev Container",
+    "image": "nixos/nix",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "arrterian.nix-env-selector",
+                "srghma.nix",
+                "ms-python.python",
+                "rust-lang.rust-analyzer"
+            ],
+            "settings": {
+                "nixEnvSelector.nixEnv": "flake",
+                "editor.formatOnSave": true,
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "postCreateCommand": "nix develop",
+    "remoteUser": "vscode"
+}
