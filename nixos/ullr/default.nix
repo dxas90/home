@@ -210,6 +210,7 @@ in
   #                 USER APPLICATION                 #
   ####################################################
   users.users.daniel = {
+    name = "Daniel Ramirez";
     shell = pkgs.bash;
     home = "/home/daniel";
     isNormalUser = true;
