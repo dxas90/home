@@ -239,9 +239,9 @@
   programs.home-manager.enable = true;
 
   sops = {
-    age.keyFile = "${home.homeDirectory}/.config/sops/age/keys.txt"; # must have no password!
+    age.keyFile = ".config/sops/age/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
-    age.sshKeyPaths = [ "${home.homeDirectory}/.ssh/automation.pub" ];
+    age.sshKeyPaths = [ ".ssh/automation.pub" ];
     defaultSopsFile = ./secrets.sops.yaml;
     secrets."myservice/my_subdir/my_secret" = {
       mode = "0440";
