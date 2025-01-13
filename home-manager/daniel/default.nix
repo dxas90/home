@@ -244,13 +244,11 @@ in
   sops = {
     age.keyFile = "${homePath}/.config/sops/age/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
-    age.sshKeyPaths = [ "${homePath}/.ssh/automation.pub" ];
+    age.sshKeyPaths = [ "${homePath}/.ssh/id_rsa" ];
     defaultSopsFile = ./secrets.sops.yaml;
-    secrets."myservice/my_subdir/my_secret" = {
+    secrets."hello" = {
       mode = "0440";
-      # owner = config.users.users.daniel.name;
-      # group = config.users.users.daniel.group;
-      path = "%r/my_secret"; 
+      path = "%r/hello"; 
     };
   };
 }
