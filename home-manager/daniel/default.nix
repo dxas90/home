@@ -1,25 +1,7 @@
 { inputs, outputs, config, pkgs, ... }:
 {
-  ##################################################
-  #                 BASIC SETTINGS                 #
-  ##################################################
-  nix = {
-    package = pkgs.nix;
-    settings.experimental-features = "nix-command flakes";
-  };
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config.allowUnfree = true;
-  };
-
   imports = [
     inputs.sops-nix.homeManagerModules.sops
-    ./secrets.nix
   ];
 
   #################################################
@@ -256,4 +238,16 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  sops = {
+    age.keyFile = "/home/daniel/.config/sops/age/keys.txt"; # must have no password!
+    # It's also possible to use a ssh key, but only when it has no password:
+    age.sshKeyPaths = [ "/home/daniel/.ssh/automation.pub" ];
+    defaultSopsFile = ./example.sops.yaml;
+    secrets."myservice/my_subdir/my_secret" = {
+      mode = "0440";
+      # owner = config.users.users.daniel.name;
+      # group = config.users.users.daniel.group;
+      path = "%r/my_secret"; 
+    };
+  };
 }
