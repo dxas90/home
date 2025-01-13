@@ -11,8 +11,6 @@ in
       defaultSopsFile = ./example.sops.yaml;
       secrets."myservice/my_subdir/my_secret" = {
         mode = "0440";
-        owner = config.users.users.daniel.name;
-        group = config.users.users.daniel.group;
       };
     };
   };
