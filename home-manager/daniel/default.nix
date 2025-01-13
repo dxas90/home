@@ -248,7 +248,7 @@ in
     defaultSopsFile = ./secrets.sops.yaml;
     secrets."hello" = {
       mode = "0440";
-      path = "%r/hello"; 
+      path = "%r/secrets/hello"; 
     };
   };
 }
