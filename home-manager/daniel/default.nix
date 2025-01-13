@@ -17,6 +17,10 @@
     config.allowUnfree = true;
   };
 
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
+
   #################################################
   #                 USER SETTINGS                 #
   #################################################

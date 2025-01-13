@@ -9,7 +9,11 @@ in
       age.keyFile = ageKeyFile;
       age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
       defaultSopsFile = ./example.sops.yaml;
-      secrets."myservice/my_subdir/my_secret" = {};
+      secrets."myservice/my_subdir/my_secret" = {
+        mode = "0440";
+        owner = config.users.users.daniel.name;
+        group = config.users.users.daniel.group;
+      };
     };
   };
 }

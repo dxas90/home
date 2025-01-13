@@ -30,6 +30,12 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/tmp" = {
+    device = "tmpfs";
+    fsType = "tmpfs";
+    options = [ "defaults" "noatime" "nodev" "mode=1777" ];
+  };
+
   # fileSystems."/boot/efi" =
   #   { device = "/dev/disk/by-uuid/F656-1986";
   #     fsType = "vfat";
