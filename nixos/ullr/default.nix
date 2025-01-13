@@ -115,13 +115,17 @@ in
         configurationLimit = 3;
       };
     };
-    plymouth = {
-      enable = true;
+    plymouth = 
+    let
       theme = "infinite_seal";
+    in
+    {
+      enable = true;
+      inherit theme;
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "infinite_seal" ];
+          selected_themes = [ theme ];
         })
       ];
     };
