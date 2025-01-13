@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  ageKeyFile = "${config.users.users.daniel.home}/.config/sops/age/keys.txt";
+  ageKeyFile = ".config/sops/age/keys.txt";
 in
 {
   config = {
