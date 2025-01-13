@@ -156,7 +156,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".git-commit.txt"./config/git-commit.tx;
+    ".git-commit.txt".source = ./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
     # ".config/environment.d/ssh-agent.conf".text = ''
     # SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
