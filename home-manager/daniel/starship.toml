@@ -30,6 +30,12 @@ format = " took [$duration]($style)"
 truncation_length = 5
 format = "[$path]($style)[$lock_symbol]($lock_style)"
 
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
 [git_branch]
 format = " [$symbol$branch]($style) "
 symbol = "  "
@@ -64,11 +70,6 @@ trim_at = "-"
 style = "bold dimmed white"
 disabled = true
 
-[julia]
-format = "[$symbol$version]($style) "
-symbol = "ஃ "
-style = "bold green"
-
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
 threshold = 70
@@ -78,27 +79,44 @@ disabled = false
 [package]
 disabled = true
 
-[python]
-format = "[$symbol$version]($style) "
-style = "bold green"
-
-[rust]
-format = "[$symbol$version]($style) "
-style = "bold green"
-
 [time]
-time_format = "%T"
+time_format = "%R" # Hour:Minute Format
 format = "🕙 $time($style) "
 style = "bright-white"
 disabled = false
-
-[typst]
-format = "[$symbol($version)]($style)"
-style = "bold #239dae"
 
 [username]
 style_user = "bold dimmed blue"
 show_always = false
 
 [nodejs]
+symbol = ""
 format = "via [🤖 $version](bold green) "
+
+[typst]
+format = "[$symbol($version)]($style)"
+style = "bold #239dae"
+
+[rust]
+symbol = ""
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
+
+[julia]
+format = "[$symbol$version]($style) "
+symbol = "ஃ "
+style = "bold green"
+
+[golang]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[php]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'

@@ -190,23 +190,7 @@
         recursive = true;
     };
 
-    ".wezterm.lua".text = ''
-    local wezterm = require 'wezterm'
-    local config = wezterm.config_builder()
-    config.color_scheme = 'Catppuccin Mocha'
-    config.font = wezterm.font 'Symbols Nerd Font Mono'
-    --config.webgpu_preferred_adapter = {
-    --  backend = 'Vulkan',
-    --  device = 9479,
-    --  device_type = 'DiscreteGpu',
-    --  driver = 'NVIDIA',
-    --  driver_info = '550.135',
-    --  name = 'NVIDIA GeForce RTX 3050',
-    --  vendor = 4318,
-    --}
-    config.front_end = 'WebGpu'
-    return config
-    '';
+    ".wezterm.lua".source = ./wezterm.lua;
     ".bash_aliases".source = ./bash_aliases;
     ".face".source = ./.face;
     ".config/lazygit/config.yml".text = ''
