@@ -19,7 +19,7 @@
 
   imports = [
     inputs.sops-nix.homeManagerModules.sops
-    (import ./secrets.nix { homeDirectory = "/home/daniel"; })
+    ./secrets.nix
   ];
 
   #################################################
