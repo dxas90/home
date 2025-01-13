@@ -180,18 +180,18 @@
      # For more information about this template, check out
      # https://chris.beams.io/posts/git-commit/
     '';
-    ".gitignore".source = ./.gitignore;
+    ".gitignore".source = ./config/gitignore;
     # ".config/environment.d/ssh-agent.conf".text = ''
     # SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
     # '';
-    ".config/starship.toml".source = ./starship.toml;
+    ".config/starship.toml".source = ./config/starship.toml;
     ".config/nvim" = {
         source = ./nvim;
         recursive = true;
     };
-
-    ".wezterm.lua".source = ./wezterm.lua;
-    ".bash_aliases".source = ./bash_aliases;
+    ".config/mc/ini".source = ./config/mc.ini;
+    ".wezterm.lua".source = ./config/wezterm.lua;
+    ".bash_aliases".source = ./config/bash_aliases;
     ".face".source = ./.face;
     ".config/lazygit/config.yml".text = ''
     disableStartupPopups: true
@@ -200,7 +200,7 @@
     ".config/environment.d/gsk.conf".text = ''
     GSK_RENDERER=gl
     '';
-    ".ssh/config".source = ./ssh_config;
+    ".ssh/config".source = ./config/ssh_config;
     ".ssh/config.d/github".text = ''
     Host github.com
       HostName github.com
