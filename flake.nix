@@ -49,12 +49,15 @@
 
     nixosConfigurations = {
       ullr = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/ullr
+          sops-nix.nixosModules.sops
         ];
       };
       generic = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/generic-vm
