@@ -156,30 +156,7 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".git-commit.txt".text = ''
-     # (If applied, this commit will...) <subject> (Max 50 char)
-     # |<----  Using a Maximum Of 50 Characters  ---->|
-
-     # Explain why this change is being made
-     # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
-     # Why is this change needed? Prior to this change,...
-
-     # How does it address the issue? This change...
-
-     # Provide links to any relevant tickets, articles or other resources
-     # Example: Github issue #23
-
-     # Remember to
-     #    Capitalize the subject line
-     #    Use the imperative mood in the subject line
-     #    Do not end the subject line with a period
-     #    Separate subject from body with a blank line
-     #    Use the body to explain what and why vs. how
-     #    Can use multiple lines with "-" for bullet points in body
-     # --------------------
-     # For more information about this template, check out
-     # https://chris.beams.io/posts/git-commit/
-    '';
+    ".git-commit.txt"./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
     # ".config/environment.d/ssh-agent.conf".text = ''
     # SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
@@ -193,6 +170,7 @@
     ".wezterm.lua".source = ./config/wezterm.lua;
     ".bash_aliases".source = ./config/bash_aliases;
     ".face".source = ./.face;
+    ".ssh/config".source = ./config/ssh_config;
     ".config/lazygit/config.yml".text = ''
     disableStartupPopups: true
     reporting: "off"
@@ -200,7 +178,6 @@
     ".config/environment.d/gsk.conf".text = ''
     GSK_RENDERER=gl
     '';
-    ".ssh/config".source = ./config/ssh_config;
     ".ssh/config.d/github".text = ''
     Host github.com
       HostName github.com
@@ -244,6 +221,10 @@
     hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";    
     nsp = "nix-shell -p";
   };
+  
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   # services
 #  services.syncthing = {
