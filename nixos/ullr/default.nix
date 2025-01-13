@@ -140,7 +140,8 @@ in
     "vm.swappiness" = 1;
     "vm.vfs_cache_pressure" = 50;
   };
-  boot.tmp.useTmpfs = true;
+  boot.tmp.useTmpfs = false;
+  boot.devShmSize = "50%";
   boot.tmp.cleanOnBoot = true;
 
   ############################################
