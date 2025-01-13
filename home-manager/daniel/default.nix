@@ -194,7 +194,7 @@
     local wezterm = require 'wezterm'
     local config = wezterm.config_builder()
     config.color_scheme = 'Catppuccin Mocha'
-    --config.font = wezterm.font 'Symbols Nerd Font Mono'
+    config.font = wezterm.font 'Symbols Nerd Font Mono'
     --config.webgpu_preferred_adapter = {
     --  backend = 'Vulkan',
     --  device = 9479,
