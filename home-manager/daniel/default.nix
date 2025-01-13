@@ -1,4 +1,7 @@
 { inputs, outputs, config, pkgs, ... }:
+let
+  homePath = "/home/daniel";
+in
 {
   imports = [
     inputs.sops-nix.homeManagerModules.sops
@@ -11,7 +14,7 @@
   # manage.
 
   home.username = "daniel";
-  home.homeDirectory = "/home/daniel";
+  home.homeDirectory = homePath;
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
@@ -239,9 +242,9 @@
   programs.home-manager.enable = true;
 
   sops = {
-    age.keyFile = "\${HOME}/.config/sops/age/keys.txt"; # must have no password!
+    age.keyFile = "${homePath}/.config/sops/age/keys.txt"; # must have no password!
     # It's also possible to use a ssh key, but only when it has no password:
-    age.sshKeyPaths = [ "\${HOME}/.ssh/automation.pub" ];
+    age.sshKeyPaths = [ "${homePath}/.ssh/automation.pub" ];
     defaultSopsFile = ./secrets.sops.yaml;
     secrets."myservice/my_subdir/my_secret" = {
       mode = "0440";
