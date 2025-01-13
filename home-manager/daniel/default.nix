@@ -19,6 +19,7 @@
 
   imports = [
     inputs.sops-nix.homeManagerModules.sops
+    ./secrets.nix
   ];
 
   #################################################
@@ -174,6 +175,7 @@
     ".wezterm.lua".source = ./config/wezterm.lua;
     ".bash_aliases".source = ./config/bash_aliases;
     ".face".source = ./.face;
+    ".face.icon".source = ./.face;
     ".ssh/config".source = ./config/ssh_config;
     ".config/lazygit/config.yml".text = ''
     disableStartupPopups: true
