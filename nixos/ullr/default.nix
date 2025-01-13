@@ -203,8 +203,9 @@ in
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = true;
   hardware.nvidia-container-toolkit.enable = true;
-  services.blueman.enable = false;
-  services.colord.enable = true;
+  # services.blueman.enable = false;
+  # services.colord.enable = false;
+  services.printing.enable = true;
 
   ####################################################
   #                 USER APPLICATION                 #
@@ -256,7 +257,9 @@ in
     bc
     brave
     btop
+    canon-cups-ufr2
     crc # https://crc.dev/
+    cups-bjnp
     curl
     direnv
     # docker
@@ -270,9 +273,10 @@ in
     home-manager
     htop
     jq
-    kdePackages.colord-kde
+    # kdePackages.colord-kde
     kdePackages.kleopatra
     kdePackages.plasma-vault
+    kdePackages.print-manager
     kdePackages.qtwayland
     killall
     libfido2
