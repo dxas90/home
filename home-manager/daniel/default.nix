@@ -204,7 +204,7 @@
     --  name = 'NVIDIA GeForce RTX 3050',
     --  vendor = 4318,
     --}
-    config.front_end = 'WebGpu
+    config.front_end = 'WebGpu'
     return config
     '';
     ".bash_aliases".source = ./bash_aliases;
