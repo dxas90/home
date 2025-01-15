@@ -65,6 +65,8 @@ in
   time.timeZone = "Europe/Sofia";
   time.hardwareClockInLocalTime = true;
 
+  # networking.firewall.enable = false;
+  networking.firewall.trustedInterfaces = [ "cni+" ]; # https://github.com/NixOS/nixpkgs/issues/98766#issuecomment-1232804319
   networking.hostName = "ullr";
   networking.networkmanager.enable = true;
 

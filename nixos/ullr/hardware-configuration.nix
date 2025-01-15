@@ -10,7 +10,7 @@
 
   boot.initrd.availableKernelModules = [ "nvme" "ahci" "xhci_pci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "btintel" "btusb" "hci_uart"];
+  boot.kernelModules = [ "kvm-amd" "btintel" "btusb" "hci_uart" "br_netfilter" "ip_conntrack" "ip_vs" "ip_vs_rr" "ip_vs_wrr" "ip_vs_sh" "overlay" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
