@@ -169,9 +169,12 @@ in
     ".config/environment.d/gsk.conf".text = ''
     GSK_RENDERER=gl
     '';
-    ".ssh/config.d/github".text = ''
+    ".ssh/config.d/git".text = ''
     Host github.com
       HostName github.com
+      User git
+    Host gitlab.com
+      HostName gitlab.com
       User git
     '';
     # # You can also set the file content immediately.
