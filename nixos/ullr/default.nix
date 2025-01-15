@@ -144,6 +144,7 @@ in
     "kernel.dmesg_restrict" = 0;
     "kernel.hung_task_timeout_secs" = 0;
     "net.core.rmem_max" = 16777216;
+    "net.ipv4.ip_forward" = 1;
     "net.ipv4.tcp_fastopen" = 3;
     "vm.swappiness" = 1;
     "vm.vfs_cache_pressure" = 50;
