@@ -80,6 +80,9 @@ in
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "udev.log_priority=3"
+      "cgroup_enable=memory" 
+      "cgroup_enable=cpuset"
+      "cgroup_memory=1"
       "quiet"
       "splash"
     ];
