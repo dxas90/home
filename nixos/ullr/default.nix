@@ -76,13 +76,14 @@ in
   boot = {
     kernelParams = [
       "boot.shell_on_fail"
+      "cgroup_enable=cpuset"
+      "cgroup_enable=memory" 
+      "cgroup_memory=1"
       "loglevel=3"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
+      "systemd.unified_cgroup_hierarchy=1"
       "udev.log_priority=3"
-      "cgroup_enable=memory" 
-      "cgroup_enable=cpuset"
-      "cgroup_memory=1"
       "quiet"
       "splash"
     ];
