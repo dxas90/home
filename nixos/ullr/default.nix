@@ -257,6 +257,8 @@ in
     };
   };
 
+  systemd.services."user@".serviceConfig.Delegate = "memory pids cpu cpuset";
+
   environment.systemPackages = with pkgs; [
     age
     age-plugin-yubikey
