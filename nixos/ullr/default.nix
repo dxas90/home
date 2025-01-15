@@ -238,6 +238,7 @@ in
       "dialout"
     ]
     ++ ifGroupsExist [
+      "docker"
       "network"
       "samba-users"
     ];
@@ -363,7 +364,7 @@ in
       enable = true;
     };
     docker = {
-      enable = false;
+      enable = true;
       rootless = {
         enable = false;
         setSocketVariable = true;
@@ -391,7 +392,7 @@ in
     };
     podman = {
       autoPrune.enable = true;
-      enable = true;
+      enable = false;
       dockerCompat = true;
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
