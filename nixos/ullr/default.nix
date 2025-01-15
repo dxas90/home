@@ -378,6 +378,10 @@ in
         };
       };
     };
+    multipass = {
+      enable = true;
+      logLevel = "info";
+    };
     podman = {
       autoPrune.enable = true;
       enable = true;
