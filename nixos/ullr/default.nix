@@ -378,6 +378,16 @@ in
         live-restore = true;
         metrics-addr = "0.0.0.0:9323";
         userland-proxy = false;
+        dns = [
+          "10.23.23.1"
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
+        "default-address-pools" = [
+          { base = "10.254.0.0/16"; size = 24; }
+          { base = "10.253.0.0/16"; size = 24; }
+          { base = "10.252.0.0/16"; size = 24; }
+        ];
         builder = {
           gc = {
             enabled = true;
