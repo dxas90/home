@@ -269,7 +269,7 @@ in
     overrideDevices = false;
     user = "daniel";
     group = "users";
-    dataDir = "/home/daniel/.syncthing"
+    dataDir = "/home/daniel/.syncthing";
     settings = {
       folders = {
         "/home/daniel/Sync" = {
