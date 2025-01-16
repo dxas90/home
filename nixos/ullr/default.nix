@@ -379,7 +379,8 @@ in
   environment.interactiveShellInit = ''
     alias vim='nvim'
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-        ssh-agent -t 1h -a $XDG_RUNTIME_DIR/ssh-agent.socket > "$XDG_RUNTIME_DIR/ssh-agent.env"
+        rm -f $XDG_RUNTIME_DIR/ssh-agent.socket
+        ssh-agent -a $XDG_RUNTIME_DIR/ssh-agent.socket > "$XDG_RUNTIME_DIR/ssh-agent.env"
     fi
     if [[ ! "$SSH_AUTH_SOCK" ]]; then
         source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
