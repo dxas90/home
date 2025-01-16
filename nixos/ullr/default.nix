@@ -293,6 +293,7 @@ in
     bc
     brave
     btop
+    bzip2
     canon-cups-ufr2
     crc # https://crc.dev/
     cups-bjnp
@@ -316,14 +317,17 @@ in
     kdePackages.qtwayland
     killall
     libfido2
+    lrzip
     lshw
     lsof
     lz4
     lzip
+    lzop
     mc
     neovim
     nerdfonts
     onlyoffice-desktopeditors
+    p7zip
     pinentry-curses
     pinentry-qt
     podman-desktop
@@ -332,14 +336,18 @@ in
     sops
     starship
     steam
+    unzip
     vlc
     # waydroid
     wezterm
     wget
     wireguard-tools
     x11_ssh_askpass
+    xz
     yakuake
     yubikey-manager
+    zip
+    zstd
   ];
 
   environment.etc."nixos/active".text = config.system.nixos.label;
