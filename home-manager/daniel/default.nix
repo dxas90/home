@@ -103,7 +103,6 @@ in
     #  blender
      devpod-desktop
      devspace
-     discord
     #  famistudio
      git-credential-keepassxc
      go-task
@@ -120,11 +119,12 @@ in
      obsidian
      qbittorrent
      syncthing
-     teams-for-linux
-     telegram-desktop
      tor-browser
      vcluster
-     zoom-us
+     discord
+     teams-for-linux
+     telegram-desktop
+     zoom-usdev
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -221,9 +221,23 @@ in
   ];
 
   # services
-#  services.syncthing = {
-#    enable = true;
-#  };
+ services.syncthing = {
+   enable = true;
+   overrideFolders = false;
+   tray = true;
+   settings = {
+    folders = {
+      "${homePath}/Sync" = {
+        id = "default";
+        label = "Default Folder";
+        versioning = {
+          type = "simple";
+          params.keep = "3";
+        };
+      };
+    };
+   };
+ };
 
   programs.direnv = {
     enable = true;
