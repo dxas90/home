@@ -223,7 +223,7 @@ in
   # services
  services.syncthing = {
    enable = true;
-   overrideFolders = false;
+  #  overrideFolders = false;
    tray = true;
    settings = {
     folders = {
