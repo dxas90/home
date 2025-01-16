@@ -7,6 +7,10 @@ Host *
   ControlPersist 600  
   AddKeysToAgent yes
   ForwardAgent yes
+  IdentityFile /home/daniel/.ssh/id_rsa
+  IdentityFile /home/daniel/.ssh/id_ed25519
+  IdentityFile /home/daniel/.ssh/id_ecdsa
+  IdentityFile /home/daniel/.ssh/automation
 
 Include config.d/*
 
@@ -21,7 +25,6 @@ Host i-* mi-*
    AddressFamily           inet
    PasswordAuthentication  no
    IdentitiesOnly          yes
-   IdentityFile            ~/.ssh/id_rsa
    #ProxyCommand            aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p
    ProxyCommand            aws ssm start-session --target %h
    ControlMaster           auto
