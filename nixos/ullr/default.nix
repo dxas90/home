@@ -284,6 +284,18 @@ in
     };
   };
 
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+    loadModels = [
+      "codellama:13b"
+      "deepseek-coder-v2"
+      "gemma2:9b"
+      "llama3.2-vision"
+      "llama3.2"
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     age
     age-plugin-yubikey
@@ -358,10 +370,12 @@ in
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
   };
+
   environment.variables = {
     LANG = "en_US.UTF-8";
     LC_ALL = "en_US.UTF-8";
   };
+
   environment.interactiveShellInit = ''
     alias vim='nvim'
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -387,9 +401,11 @@ in
     enable = true;
     binfmt = true;
   };
+
   programs.gnupg.agent ={
     enable = true;
   };
+
   virtualisation = {
     containers ={
       enable = true;
