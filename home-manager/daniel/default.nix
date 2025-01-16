@@ -149,7 +149,7 @@ in
     ".git-commit.txt".source = ./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
     ".config/environment.d/ssh-agent.conf".text = ''
-      SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent
+      SSH_AUTH_SOCK="\${XDG_RUNTIME_DIR}/ssh-agent.socket"
     '';
     ".config/starship.toml".source = ./config/starship.toml;
     ".config/nvim" = {
@@ -207,6 +207,7 @@ in
     MY_SHELL = "\$(basename \$(readlink /proc/\$\$/exe))";
     DOCKER_CLI_EXPERIMENTAL = "enabled";
     NIXPKGS_ALLOW_UNFREE = "1";
+    SSH_AUTH_SOCK="\${XDG_RUNTIME_DIR}/ssh-agent.socket";
   };
 
   home.shellAliases = {

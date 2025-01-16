@@ -1,6 +1,7 @@
 alias aria2c='/usr/bin/aria2c --summary-interval 0 -x 10 -c -s 10 -k 1M -j 10 -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" --save-cookies=/tmp/aria2c_cookies '
 alias docwget='/usr/bin/wget -U "5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36" -c -k -r '
 alias fix-ssh='killall ssh-agent; SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"; export SSH_AUTH_SOCK; ssh-agent -a $SSH_AUTH_SOCK; ssh-add'
+alias ssh-agent='SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"; ssh-agent -a $SSH_AUTH_SOCK'
 alias fixgpu='rm -rf /home/daniel/.config/google-chrome/GrShaderCache/* /home/daniel/.config/google-chrome/ShaderCache/* /home/daniel/.steam/steam/config/htmlcache/* /home/daniel/.steam/steam/steamapps/shadercache/* /home/daniel/.steam/steam/appcache/httpcache/* rm -rf /home/daniel/.steam/steam/steamapps/shadercache/* /home/daniel/.steam/steam/cached/* /home/daniel/.steam/steam/depotcache/* /home/daniel/.steam/steam/appcache/httpcache/*'
 alias gpass='< /dev/urandom tr -dc A-Za-z0-9\$\^\!\@\.\- | head -c25; echo'
 alias k=kubectl
