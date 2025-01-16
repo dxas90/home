@@ -148,9 +148,9 @@ in
     # ".screenrc".source = dotfiles/screenrc;
     ".git-commit.txt".source = ./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
-    ".config/environment.d/ssh-agent.conf".text = ''
-      SSH_AUTH_SOCK="\${XDG_RUNTIME_DIR}/ssh-agent.socket"
-    '';
+    # ".config/environment.d/ssh-agent.conf".text = ''
+    #   SSH_AUTH_SOCK=\${XDG_RUNTIME_DIR}/ssh-agent.socket
+    # '';
     ".config/starship.toml".source = ./config/starship.toml;
     ".config/nvim" = {
         source = ./nvim;
