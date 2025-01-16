@@ -291,7 +291,7 @@ in
       "codellama:13b"
       "deepseek-coder-v2"
       "gemma2:9b"
-      "llama3.2-vision"
+      # "llama3.2-vision"
       "llama3.2"
     ];
   };
