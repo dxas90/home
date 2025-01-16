@@ -263,6 +263,27 @@ in
 
   systemd.services."user@".serviceConfig.Delegate = "memory pids cpu cpuset";
 
+  services.syncthing = {
+    enable = true;
+    overrideFolders = false;
+    overrideDevices = false;
+    user = "daniel";
+    group = "users";
+    dataDir = "/home/daniel/.syncthing"
+    settings = {
+      folders = {
+        "/home/daniel/Sync" = {
+          id = "default";
+          label = "Default Folder";
+          versioning = {
+            type = "simple";
+            params.keep = "3";
+          };
+        };
+      };
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     age
     age-plugin-yubikey

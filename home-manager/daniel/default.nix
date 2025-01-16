@@ -221,23 +221,22 @@ in
   ];
 
   # services
- services.syncthing = {
-   enable = true;
-  #  overrideFolders = false;
-   tray = true;
-   settings = {
-    folders = {
-      "${homePath}/Sync" = {
-        id = "default";
-        label = "Default Folder";
-        versioning = {
-          type = "simple";
-          params.keep = "3";
-        };
-      };
-    };
-   };
- };
+#  services.syncthing = {
+#    enable = true;
+#    overrideFolders = false;
+#    settings = {
+#     folders = {
+#       "${homePath}/Sync" = {
+#         id = "default";
+#         label = "Default Folder";
+#         versioning = {
+#           type = "simple";
+#           params.keep = "3";
+#         };
+#       };
+#     };
+#    };
+#  };
 
   programs.direnv = {
     enable = true;
