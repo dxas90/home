@@ -13,7 +13,7 @@ config.color_scheme = 'Catppuccin Mocha'
 
 config.window_background_opacity = 0.88
 
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "RESIZE"
 
 config.window_background_gradient = {
   interpolation = 'Linear',
