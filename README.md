@@ -16,12 +16,12 @@ Install a configuration without cloning this repository.
 
 1. If Home Manager is not installed and flakes are not enabled, run
 ```bash
-nix develop --extra-experimental-features 'nix-command flakes' github:dramirez-qb/home
+nix develop --extra-experimental-features 'nix-command flakes' github:dxas90/home
 ```
 
 2. Install the Home Manager configuration of your choice.
 ```bash
-home-manager switch --flake github:dramirez-qb/home#$USER@$HOST
+home-manager switch --flake github:dxas90/home#$USER@$HOST
 ```
 where `$USER@$HOST` is the `homeConfigurations` string in `flake.nix`.
 
@@ -35,7 +35,7 @@ Configure your NixOS system based off this flake.
 # If not already installed
 nix-shell -p git
 
-git clone https://github.com/dramirez-qb/home ~/.dot-files
+git clone https://github.com/dxas90/home ~/.dot-files
 
 cd ~/.dot-files
 

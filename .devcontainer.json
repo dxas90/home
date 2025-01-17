@@ -35,5 +35,5 @@
 	},
 	"workspaceFolder": "/workspace",
 	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-	"postCreateCommand": "nix develop --extra-experimental-features 'nix-command flakes' github:dramirez-qb/home"
+	"postCreateCommand": "nix develop --extra-experimental-features 'nix-command flakes' github:dxas90/home"
 }

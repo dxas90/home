@@ -162,7 +162,7 @@ in
     home = "/home/daniel";
     isNormalUser = true;
     openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl {
-      url = https://github.com/dramirez-qb.keys;
+      url = https://github.com/dxas90.keys;
       sha256 = "621341ff4df62480eac9092e449ac565ac3440b68ae373a78b37c0ca4577e5d2";
     });
     extraGroups = [

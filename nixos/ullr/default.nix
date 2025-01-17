@@ -227,7 +227,7 @@ in
     home = "/home/daniel";
     isNormalUser = true;
     openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl {
-      url = https://github.com/dramirez-qb.keys;
+      url = https://github.com/dxas90.keys;
       sha256 = "84b34e33be4cce737a6260f980062618f711d7a23e925dbf2c258ee175837fc2";
     });
     extraGroups = [
@@ -364,7 +364,7 @@ in
 
   environment.etc."nixos/active".text = config.system.nixos.label;
   # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
-  #   url = "https://github.com/dramirez-qb/home.git";
+  #   url = "https://github.com/dxas90/home.git";
   #   ref = "main";
   # };
   environment.sessionVariables = {

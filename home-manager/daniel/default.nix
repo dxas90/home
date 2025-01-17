@@ -213,7 +213,7 @@ in
   home.shellAliases = {
     g = "git";
     "..." = "cd ../..";
-    hmu = "home-manager switch --flake github:dramirez-qb/home#daniel --impure --refresh";    
+    hmu = "home-manager switch --flake github:dxas90/home#daniel --impure --refresh";    
     nsp = "nix-shell -p";
   };
   
