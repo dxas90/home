@@ -228,7 +228,7 @@ in
     isNormalUser = true;
     openssh.authorizedKeys.keys = lib.strings.splitString "\n" (builtins.fetchurl {
       url = https://github.com/dxas90.keys;
-      sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+      sha256 = "ff44683297b72895898610057d81e4961014f86d4068ffeec813bda2c5303a51";
     });
     extraGroups = [
       "networkmanager"
