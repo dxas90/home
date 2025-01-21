@@ -352,6 +352,7 @@ in
     starship
     steam
     unzip
+    vagrant
     vlc
     # waydroid
     wezterm
@@ -395,7 +396,7 @@ in
   programs.gamemode.enable = true;
 
   programs.steam = {
-    enable = true;
+    enable = false;
     gamescopeSession.enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
