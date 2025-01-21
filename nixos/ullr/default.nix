@@ -322,11 +322,13 @@ in
     gnumake
     home-manager
     htop
+    ijs
     jq
     # kdePackages.colord-kde
     kdePackages.kleopatra
     kdePackages.plasma-vault
     kdePackages.print-manager
+    kdePackages.skanlite
     kdePackages.qtwayland
     killall
     libfido2
@@ -351,7 +353,6 @@ in
     steam
     unzip
     vlc
-    vuescan
     # waydroid
     wezterm
     wget
@@ -363,8 +364,6 @@ in
     zip
     zstd
   ];
-
-  services.udev.packages = with pkgs; [ vuescan ]; # important for vuescan to be able to identify scanners
 
   environment.etc."nixos/active".text = config.system.nixos.label;
   # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
