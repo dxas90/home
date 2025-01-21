@@ -268,20 +268,4 @@ in
       path = "%r/secrets/hello"; 
     };
   };
-
-
-  ################################################
-  #                 NIX SETTINGS                 #
-  ################################################
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-    };
-    gc = {
-      automatic = true;
-      frequency = "hourly";
-      options = "-d --repair --delete-older-than 2h";
-      randomizedDelaySec = "45min";
-    };
-  };
 }
