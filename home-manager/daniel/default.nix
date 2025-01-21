@@ -246,7 +246,7 @@ in
   };
   programs.lazygit.enable = true;
   programs.obs-studio = {
-    enable = false;
+    enable = true;
     plugins = with pkgs; [
       obs-studio-plugins.wlrobs
       obs-studio-plugins.obs-websocket
