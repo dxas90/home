@@ -279,7 +279,7 @@ in
     };
     gc = {
       automatic = true;
-      dates = "hourly";
+      frequency = "hourly";
       options = "-d --repair --delete-older-than 2h";
       randomizedDelaySec = "45min";
     };
