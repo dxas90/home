@@ -364,7 +364,7 @@ in
     zstd
   ];
 
-  services.udev.packages = [ vuescan ]; # important for vuescan to be able to identify scanners
+  services.udev.packages = with pkgs; [ vuescan ]; # important for vuescan to be able to identify scanners
 
   environment.etc."nixos/active".text = config.system.nixos.label;
   # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
