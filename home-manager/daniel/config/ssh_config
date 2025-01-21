@@ -35,4 +35,5 @@ Host knock_remote
     ServerAliveInterval 60
     PermitLocalCommand yes
     ProxyCommand bash -c '/usr/local/bin/knock %h 5700 5701 5702 5703; sleep 1; exec /usr/bin/nc %h %p'
+#    ProxyCommand bash -c '/usr/bin/knock %h 5700:udp 5701:tcp 5702:udp -d 500; sleep 1; exec /bin/nc %h %p'
     LocalCommand bash -c '/usr/local/bin/knock %h 5703 5702 5701 5700; sleep 1'

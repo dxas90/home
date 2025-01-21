@@ -174,6 +174,7 @@ in
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
+    theme = "Sweet-Mars";
   };
 
   services.displayManager.defaultSession = "plasma";
@@ -350,6 +351,7 @@ in
     steam
     unzip
     vlc
+    vuescan
     # waydroid
     wezterm
     wget
@@ -361,6 +363,8 @@ in
     zip
     zstd
   ];
+
+  services.udev.packages = [ vuescan ]; # important for vuescan to be able to identify scanners
 
   environment.etc."nixos/active".text = config.system.nixos.label;
   # environment.etc."nixos/dotfiles-src".source = builtins.fetchGit {
