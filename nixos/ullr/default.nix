@@ -328,7 +328,7 @@ in
     kdePackages.kleopatra
     kdePackages.plasma-vault
     kdePackages.print-manager
-    kdePackages.skanlite
+    # kdePackages.skanlite
     kdePackages.qtwayland
     killall
     libfido2
