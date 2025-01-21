@@ -1,4 +1,4 @@
-{ inputs, outputs, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 let
   homePath = "/home/daniel";
 in
@@ -266,6 +266,22 @@ in
     secrets."hello" = {
       mode = "0440";
       path = "%r/secrets/hello"; 
+    };
+  };
+
+
+  ################################################
+  #                 NIX SETTINGS                 #
+  ################################################
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "hourly";
+      options = "-d --repair --delete-older-than 2h";
+      randomizedDelaySec = "45min";
     };
   };
 }
