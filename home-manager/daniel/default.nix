@@ -27,72 +27,96 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
-  programs.bash = {
-    enable = true;
-    historyControl = [ "ignoredups" "ignorespace" ];
-    bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "Daniel Ramirez";
-    userEmail = "dxas90@gmail.com";
-    signing.signByDefault = true;
-    signing.key = "~/.ssh/id_rsa.pub";
-    aliases = {
-      ca = "commit -a";
-      ci = "commit";
-      co = "checkout";
-      st = "status";
-      fa = "fetch --all";
-      dat = "show --no-patch --no-notes --pretty='%cd'";
-      amend = "commit --amend -m";
-      pa = "!git remote | xargs -L1 git push --all";
-      a = "!git status --short | peco | awk '{print $2}' | xargs git add";
-      d = "diff";
-      ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)";
-      pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)";
-      br = "branch";
-      ba = "branch -a";
-      bm = "branch --merged";
-      bn = "branch --no-merged";
-      lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''     %C(black)%s%C(reset) %C(dimwhite)- %an%C(reset)' --all";
-      lola = "log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all";
-      lol = "log --graph --decorate --oneline";
-      llog = "log --graph --name-status --pretty=format:\'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\' --date=relative";
-      pln-release = "!'f() { git log \'$1\' --format=format:\'%aE * [ ] %C(auto)%h %Creset%s\' | sed 's/[0-9]\\{6,\\}+//g' | sed 's/users.noreply.github.com/quickbase.com/g' | sort | python3 ~/bin/email_sort.py; }; f'";
+  programs = {
+    lazygit.enable = true;
+    zoxide.enable = true;
+    bash = {
+      enable = true;
+      historyControl = [ "ignoredups" "ignorespace" ];
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
     };
-    extraConfig = {
-      branch.autosetuprebase = "always";
-      color.branch = "auto";
-      color.status = "auto";
-      color.ui = true;
-      commit.gpgsign = true;
-      commit.template = "~/.git-commit.txt";
-      core.autocrlf = "input";
-      core.commitGraph = true;
-      core.editor = "nvim";
-      core.excludesfile = "~/.gitignore";
-      core.ignorecase = false;
-      core.quotepath = false;
-      credential.helper = "cache --timeout=57600";
-      diff.sopsdiffer.textconv = "sops -d";
-      fetch.prune = true;
-      filter.lfs.clean = "git-lfs clean -- %f";
-      filter.lfs.process = "git-lfs filter-process";
-      filter.lfs.required = true;
-      filter.lfs.smudge = "git-lfs smudge -- %f";
-      gc.writeCommitGraph = true;
-      gpg.format = "ssh";
-      init.defaultBranch = "main";
-      merge.conflictstyle = "diff3";
-      merge.tool = "vimdiff";
-      mergetool.prompt = false;
-      push.autoSetupRemote = true;
-      push.default = "simple";
-      push.followTags = true;
-      receive.advertisePushOptions = true;
-      receive.procReceiveRefs = "refs/for";
+
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.wlrobs
+        obs-studio-plugins.obs-websocket
+        obs-studio-plugins.obs-multi-rtmp
+        obs-studio-plugins.obs-move-transition
+        obs-studio-plugins.advanced-scene-switcher
+      ];
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+    # Tmate terminal sharing.
+    tmate = {
+      enable = true;
+      #host = ""; #In case you wish to use a server other than tmate.io 
+    };
+    git = {
+      enable = true;
+      userName = "Daniel Ramirez";
+      userEmail = "dxas90@gmail.com";
+      signing.signByDefault = true;
+      signing.key = "~/.ssh/id_rsa.pub";
+      aliases = {
+        ca = "commit -a";
+        ci = "commit";
+        co = "checkout";
+        st = "status";
+        fa = "fetch --all";
+        dat = "show --no-patch --no-notes --pretty='%cd'";
+        amend = "commit --amend -m";
+        pa = "!git remote | xargs -L1 git push --all";
+        a = "!git status --short | peco | awk '{print $2}' | xargs git add";
+        d = "diff";
+        ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)";
+        pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)";
+        br = "branch";
+        ba = "branch -a";
+        bm = "branch --merged";
+        bn = "branch --no-merged";
+        lg = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''     %C(black)%s%C(reset) %C(dimwhite)- %an%C(reset)' --all";
+        lola = "log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all";
+        lol = "log --graph --decorate --oneline";
+        llog = "log --graph --name-status --pretty=format:\'%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\' --date=relative";
+        pln-release = "!'f() { git log \'$1\' --format=format:\'%aE * [ ] %C(auto)%h %Creset%s\' | sed 's/[0-9]\\{6,\\}+//g' | sed 's/users.noreply.github.com/quickbase.com/g' | sort | python3 ~/bin/email_sort.py; }; f'";
+      };
+      extraConfig = {
+        branch.autosetuprebase = "always";
+        color.branch = "auto";
+        color.status = "auto";
+        color.ui = true;
+        commit.gpgsign = true;
+        commit.template = "~/.git-commit.txt";
+        core.autocrlf = "input";
+        core.commitGraph = true;
+        core.editor = "nvim";
+        core.excludesfile = "~/.gitignore";
+        core.ignorecase = false;
+        core.quotepath = false;
+        credential.helper = "cache --timeout=57600";
+        diff.sopsdiffer.textconv = "sops -d";
+        fetch.prune = true;
+        filter.lfs.clean = "git-lfs clean -- %f";
+        filter.lfs.process = "git-lfs filter-process";
+        filter.lfs.required = true;
+        filter.lfs.smudge = "git-lfs smudge -- %f";
+        gc.writeCommitGraph = true;
+        gpg.format = "ssh";
+        init.defaultBranch = "main";
+        merge.conflictstyle = "diff3";
+        merge.tool = "vimdiff";
+        mergetool.prompt = false;
+        push.autoSetupRemote = true;
+        push.default = "simple";
+        push.followTags = true;
+        receive.advertisePushOptions = true;
+        receive.procReceiveRefs = "refs/for";
+      };
     };
   };
 
@@ -239,21 +263,10 @@ in
 #    };
 #  };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true; # see note on other shells below
-    nix-direnv.enable = true;
-  };
-  programs.lazygit.enable = true;
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs; [
-      obs-studio-plugins.wlrobs
-      obs-studio-plugins.obs-websocket
-      obs-studio-plugins.obs-multi-rtmp
-      obs-studio-plugins.obs-move-transition
-      obs-studio-plugins.advanced-scene-switcher
-    ];
+  nix.gc = {
+    automatic = true;
+    # Change how often the garbage collector runs (default: weekly)
+    frequency = "hourly";
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

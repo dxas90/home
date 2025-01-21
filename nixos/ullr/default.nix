@@ -308,6 +308,7 @@ in
     btop
     bzip2
     canon-cups-ufr2
+    comma
     crc # https://crc.dev/
     cups-bjnp
     curl
