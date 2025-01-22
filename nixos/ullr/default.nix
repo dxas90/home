@@ -155,7 +155,6 @@ in
     "net.ipv4.tcp_congestion_control" = "bbr";     # Tweak local networking
     "net.core.netdev_max_backlog" = 30000;
     "net.core.rmem_default" = 262144;
-    "net.core.rmem_max" = 67108864;
     "net.core.wmem_default" = 262144;
     "net.core.wmem_max" = 67108864;
     "net.ipv4.ipfrag_high_threshold" = 5242880;
