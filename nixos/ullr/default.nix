@@ -417,6 +417,7 @@ in
   catppuccin = {
     enable = true;
     flavor = "mocha";
+    plymouth.enable = false;
   };
 
   programs.neovim.enable = true;
