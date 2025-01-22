@@ -70,7 +70,7 @@ in
   networking.hostName = "ullr";
   networking.networkmanager.enable = true;
 
-  fileSystems."/".options = [ "noatime" "nodiratime" "discard" ];
+  fileSystems."/".options = [ "noatime" "nodiratime" "discard" "relatime" ];
 
   ###############################################
   #                 BOOT LOADER                 #
@@ -81,7 +81,9 @@ in
       "cgroup_enable=cpuset"
       "cgroup_enable=memory" 
       "cgroup_memory=1"
+      "fbcon=nodefer"
       "loglevel=3"
+      "nvidia_drm.modeset=1"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "systemd.unified_cgroup_hierarchy=1"
@@ -148,8 +150,28 @@ in
     "net.core.rmem_max" = 16777216;
     "net.ipv4.ip_forward" = 1;
     "net.ipv4.tcp_fastopen" = 3;
-    "vm.swappiness" = 1;
-    "vm.vfs_cache_pressure" = 50;
+    "vm.swappiness" = 0;
+    "vm.vfs_cache_pressure" = 90;
+    "net.ipv4.tcp_congestion_control" = "bbr";     # Tweak local networking
+    "net.core.netdev_max_backlog" = 30000;
+    "net.core.rmem_default" = 262144;
+    "net.core.rmem_max" = 67108864;
+    "net.core.wmem_default" = 262144;
+    "net.core.wmem_max" = 67108864;
+    "net.ipv4.ipfrag_high_threshold" = 5242880;
+    "net.ipv4.tcp_keepalive_intvl" = 30;
+    "net.ipv4.tcp_keepalive_probes" = 5;
+    "net.ipv4.tcp_keepalive_time" = 300;
+    "vm.dirty_background_bytes" = 583200768;      # 556 MB (128 MB + 450 MB)
+    "vm.dirty_bytes" = 851968768;                 # 812 MB (384 MB + 450 MB)
+    "vm.min_free_kbytes" = 65536;                 # Minimum free memory for safety (in KB)
+
+    # Adjust dirty data management for NVMe drives
+    "vm.dirty_background_ratio" = "5";            # Set the ratio of dirty memory at which background writeback starts (5%).
+    "vm.dirty_expire_centisecs" = "3000";         # Set the time at which dirty data is old enough to be eligible for writeout (3000 centiseconds).
+    "vm.dirty_ratio" = "10";                      # Set the ratio of dirty memory at which a process is forced to write out dirty data (10%).
+    "vm.dirty_time" = "0";                        # Disable dirty time accounting.
+    "vm.dirty_writeback_centisecs" = "300";       # Set the interval between two consecutive background writeback passes (300 centiseconds).    
   };
   boot.tmp.useTmpfs = false;
   boot.devShmSize = "50%";
@@ -174,7 +196,7 @@ in
     enable = true;
     autoNumlock = true;
     wayland.enable = true;
-    theme = "Sweet-Mars";
+    # theme = "Sweet-Mars";
   };
 
   services.displayManager.defaultSession = "plasma";
