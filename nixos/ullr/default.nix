@@ -414,7 +414,10 @@ in
     fi
   '';
 
-  catppuccin.flavor = "mocha";
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+  };
 
   programs.neovim.enable = true;
   programs.git.enable = true;
