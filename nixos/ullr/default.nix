@@ -328,6 +328,7 @@ in
     brave
     btop
     bzip2
+    catppuccin-cursors.mochaDark
     canon-cups-ufr2
     comma
     crc # https://crc.dev/
@@ -412,6 +413,8 @@ in
         source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
     fi
   '';
+
+  catppuccin.flavor = "mocha";
 
   programs.neovim.enable = true;
   programs.git.enable = true;

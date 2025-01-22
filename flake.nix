@@ -52,6 +52,7 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs outputs; };
         modules = [
+          catppuccin.nixosModules.catppuccin
           ./nixos/ullr
           sops-nix.nixosModules.sops
         ];
