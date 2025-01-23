@@ -36,6 +36,9 @@ in
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
       bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\n";
+      shellInit = ''
+        export CODESTATS_API_KEY="$(cat ${config.sops.secrets.codestats_api_key.path})"
+      '';
     };
 
     obs-studio = {
@@ -281,6 +284,10 @@ in
     secrets."hello" = {
       mode = "0440";
       path = "%r/secrets/hello"; 
+    };
+    secrets."codestats_api_key" = {
+      mode = "0400";
+      path = "%r/secrets/codestats_api_key"; 
     };
   };
 }
