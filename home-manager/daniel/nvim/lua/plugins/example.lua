@@ -42,7 +42,8 @@ if true then
       end)
     end,
   },
-  {"nyaa8/codestats.nvim"}
+  { "YannickFricke/codestats.nvim" },
+  { "nvim-lua/plenary.nvim", lazy = true }
  }
 end
 
