@@ -287,7 +287,6 @@ in
     };
     templates."config-with-secrets.toml" = {
       mode = "0400";
-      owner = "daniel";
       content = ''
         password = "${config.sops.placeholder.hello}"
       '';
