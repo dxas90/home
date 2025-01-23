@@ -35,7 +35,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $XDG_RUNTIME_DIR/secrets/codestats_api_key)\"\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $HOME/.config/sops-nix/secrets/codestats_api_key)\"\n";
     };
 
     obs-studio = {
@@ -284,7 +284,13 @@ in
     };
     secrets."codestats_api_key" = {
       mode = "0400";
-      path = "%r/secrets/codestats_api_key"; 
+    };
+    templates."config-with-secrets.toml" = {
+      mode = "0400";
+      owner = "daniel";
+      content = ''
+        password = "${config.sops.placeholder.hello}"
+      '';
     };
   };
 }
