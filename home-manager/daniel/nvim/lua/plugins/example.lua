@@ -41,7 +41,8 @@ if true then
         require("telescope").load_extension("terraform_doc")
       end)
     end,
-  }
+  },
+  {"nyaa8/codestats.nvim"}
  }
 end
 
