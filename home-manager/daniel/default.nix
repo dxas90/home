@@ -35,7 +35,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat ${config.sops.secrets.codestats_api_key.path})\"\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $XDG_RUNTIME_DIR/secrets/codestats_api_key)\"\n";
     };
 
     obs-studio = {
