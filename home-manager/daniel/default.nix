@@ -142,6 +142,7 @@ in
      kubernetes-helm
      lazygit
      lens
+     linkerd_edge
      nerdfonts
      obsidian
      qbittorrent
