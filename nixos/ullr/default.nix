@@ -327,6 +327,7 @@ in
     bc
     brave
     btop
+    btrfs-progs
     bzip2
     catppuccin-cursors.mochaDark
     canon-cups-ufr2
