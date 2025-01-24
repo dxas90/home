@@ -6,3 +6,14 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+vim.api.nvim_create_autocmd({"BufEnter"}, {
+    callback = function(event)
+        local title = "vim"
+        if event.file ~= "" then
+            title = string.format("vim: %s", vim.fs.basename(event.file))
+        end
+
+        vim.fn.system({"wezterm", "cli", "set-tab-title", title})
+    end,
+})
+
