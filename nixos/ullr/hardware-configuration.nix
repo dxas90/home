@@ -15,7 +15,7 @@
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/f60f22ea-f00e-4e05-b027-ebe014626dcc";
-      fsType = "ext4";
+      fsType = "btrfs";
       options = [ "errors=remount-ro" "noatime" "nodiratime" "discard" ];
     };
 
