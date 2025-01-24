@@ -213,12 +213,6 @@ in
     };
   };
 
-  services.btrfs.autoScrub = {
-    enable = true;
-    interval = "monthly";
-    fileSystems = [ "/" ];
-  };
-
   services.flatpak.enable = true;
   services.pcscd.enable = true;
 
