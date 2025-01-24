@@ -83,7 +83,7 @@ in
       "cgroup_memory=1"
       "fbcon=nodefer"
       "loglevel=3"
-      "nvidia_drm.modeset=1"
+#      "nvidia_drm.modeset=1"
       "rd.systemd.show_status=false"
       "rd.udev.log_level=3"
       "systemd.unified_cgroup_hierarchy=1"
@@ -120,7 +120,7 @@ in
         # efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
         device = "/dev/sda";
         useOSProber = true;
-        configurationLimit = 3;
+        configurationLimit = 4;
       };
     };
     plymouth = 
@@ -173,7 +173,7 @@ in
     "vm.dirty_writeback_centisecs" = "300";       # Set the interval between two consecutive background writeback passes (300 centiseconds).    
   };
   boot.tmp.useTmpfs = false;
-  boot.devShmSize = "50%";
+  #boot.devShmSize = "50%";
   boot.tmp.cleanOnBoot = true;
 
   ############################################
