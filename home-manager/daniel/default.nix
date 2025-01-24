@@ -139,6 +139,7 @@ in
      kopia
      krita
      kubectl
+     kubernetes-helm
      lazygit
      lens
      nerdfonts
@@ -245,6 +246,7 @@ in
   
   home.sessionPath = [
     "$HOME/.local/bin"
+    "$HOME/.linkerd2/bin"
   ];
 
   # services
