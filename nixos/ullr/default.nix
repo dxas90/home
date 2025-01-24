@@ -335,8 +335,9 @@ in
     cups-bjnp
     curl
     direnv
-    # docker
-    # docker-buildx
+    docker
+    docker-buildx
+    docker-credential-helpers
     fd
     fzf
     gcc
