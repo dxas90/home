@@ -213,6 +213,8 @@ in
     };
   };
 
+  services.journald.extraConfig = "SystemMaxUse=100M\nMaxRetentionSec=240h";
+
   services.flatpak.enable = true;
   services.pcscd.enable = true;
 
