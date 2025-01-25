@@ -76,5 +76,14 @@
         pkgs = pkgsFor.x86_64-linux;
       };
     };
+      manjaro = home-manager.lib.homeManagerConfiguration {
+        extraSpecialArgs = { inherit inputs outputs; };
+        modules = [
+          catppuccin.homeManagerModules.catppuccin
+          ./home-manager/manjaro
+        ];
+        pkgs = pkgsFor.x86_64-linux;
+      };
+    };
   };
 }
