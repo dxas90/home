@@ -131,7 +131,6 @@ in
      direnv
      fd
      fzf
-     home-manager
      jq
      neovim
      nerdfonts
