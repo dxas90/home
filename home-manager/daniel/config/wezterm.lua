@@ -36,7 +36,7 @@ config.window_background_gradient = {
 --  name = 'NVIDIA GeForce RTX 3050',
 --  vendor = 4318,
 --}
-config.front_end = 'WebGpu'
+--config.front_end = 'WebGpu'
 
 --config.use_fancy_tab_bar = false
 
