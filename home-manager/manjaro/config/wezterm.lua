@@ -28,6 +28,8 @@ config.window_background_gradient = {
 	},
 }
 
+config.mux_enable_ssh_agent = false
+
 config.front_end = "WebGpu"
 
 return config
