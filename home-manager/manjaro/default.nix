@@ -151,7 +151,7 @@ in
   home.file = {
     ".git-commit.txt".source = ./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
-    ".config/starship.toml".source = ./config/starship.toml;
+    #".config/starship.toml".source = ./config/starship.toml;
     ".config/nvim" = {
         source = ./nvim;
         recursive = true;
