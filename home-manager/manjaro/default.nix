@@ -123,9 +123,7 @@ in
      teams-for-linux
      telegram-desktop
      zoom-us
-
      age
-     age-plugin-yubikey
      aria2
      bat
      direnv
@@ -136,7 +134,6 @@ in
      nerdfonts
      ripgrep
      sops
-     wezterm
   ];
 
   home.file = {
@@ -182,6 +179,7 @@ in
 
   home.shellAliases = {
     g = "git";
+    vim = "nvim";
     "..." = "cd ../..";
     hmu = "home-manager switch --flake github:dxas90/home#manjaro --impure --refresh";
     nsp = "nix-shell -p";
