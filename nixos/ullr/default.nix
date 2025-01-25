@@ -138,6 +138,8 @@ in
       ];
     };
   };
+  # latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest
 
   boot.kernel.sysctl = { 
     "fs.aio-max-nr" = 524288;
