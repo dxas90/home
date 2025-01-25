@@ -30,6 +30,12 @@ config.window_background_gradient = {
 
 config.mux_enable_ssh_agent = false
 
+config.mux_env_remove = {
+	"SSH_AUTH_SOCK",
+	"SSH_CLIENT",
+	"SSH_CONNECTION",
+}
+
 config.front_end = "WebGpu"
 
 return config
