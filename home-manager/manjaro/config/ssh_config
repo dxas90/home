@@ -1,0 +1,63 @@
+# Global settings for all hosts
+Host *
+  ServerAliveInterval 30                      # Keep connections alive every 30 seconds
+  ServerAliveCountMax 120                     # Disconnect after ~60 minutes of no response
+  StrictHostKeyChecking no                    # Disable strict key checking (for flexibility)
+  ControlMaster auto                          # Enable multiplexing
+  ControlPath ~/.ssh/control-socket-%r@%h-%p  # Path for the multiplexing socket
+  ControlPersist 600                          # Keep multiplexed sessions open for 10 minutes
+  AddKeysToAgent yes                          # Automatically add keys to the SSH agent
+  ForwardAgent yes                            # Forward the authentication agent connection
+  LogLevel VERBOSE                            # Increase logging level for debugging
+  TCPKeepAlive yes                            # Keep connections alive at the TCP level
+  Compression yes                             # Compress data for slower connections
+  AddressFamily any                           # Allow both IPv4 and IPv6 connections
+  ConnectTimeout 15                           # Abort connection attempts after 15 seconds
+  ConnectionAttempts 3                        # Retry connection 3 times before failing
+  HashKnownHosts yes                          # Hash entries in known_hosts for privacy
+  IdentityFile /home/daniel/.ssh/id_ed25519   # ED25519 key (recommended for modern systems)
+  IdentityFile /home/daniel/.ssh/id_rsa       # RSA key
+  IdentityFile /home/daniel/.ssh/id_ecdsa     # ECDSA key
+  IdentityFile /home/daniel/.ssh/automation   # Custom key for automation (ED25519)
+
+# Include additional configurations
+Include config.d/*
+
+# Tor hidden services
+Host *.onion
+  ProxyCommand ncat --proxy 127.0.0.1:9050 --proxy-type socks5 %h %p  # Use SOCKS5 proxy via Tor
+
+# AWS instances (i-* and mi-* naming pattern)
+Host i-* mi-*
+  UserKnownHostsFile /dev/null      # Do not record the host in known_hosts
+  StrictHostKeyChecking no          # Disable strict key checking
+  LogLevel ERROR                    # Suppress logs for these hosts
+  AddressFamily inet                # Use IPv4 exclusively
+  PasswordAuthentication no         # Disable password authentication
+  IdentitiesOnly yes                # Only use specified identities
+   #ProxyCommand            aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p
+  ProxyCommand aws ssm start-session --target %h  # Use AWS SSM for proxying
+  ControlMaster auto                # Enable multiplexing
+  ControlPath ~/.ssh/control:%h:%p:%r  # Path for multiplexing socket
+
+# Port-knocking remote host
+Host knock_remote
+  HostName your.home.ip.or.dns
+  PermitLocalCommand yes
+  ProxyCommand bash -c '/usr/local/bin/knock %h 5700 5701 5702 5703; sleep 1; exec /usr/bin/nc %h %p'  # Send knock sequence and connect
+  # ProxyCommand bash -c '/usr/bin/knock %h 5700:udp 5701:tcp 5702:udp -d 500; sleep 1; exec /bin/nc %h %p'
+  LocalCommand bash -c '/usr/local/bin/knock %h 5703 5702 5701 5700; sleep 1'  # Send reverse knock sequence
+
+# Example of an alias for frequently accessed servers
+Host a_server
+  HostName your.home.ip.or.dns
+  User daniel
+  Port 22
+  IdentityFile ~/.ssh/id_myserver
+  ForwardX11 yes       # Enable X11 forwarding for GUI applications
+
+Host another-server
+  HostName your.home.ip.or.dns
+  User daniel
+  Port 2222            # Custom port
+  ProxyJump myserver   # Jump through 'myserver' to access this host
