@@ -28,6 +28,6 @@ config.window_background_gradient = {
 	},
 }
 
---config.front_end = 'WebGpu'
+config.front_end = "WebGpu"
 
 return config
