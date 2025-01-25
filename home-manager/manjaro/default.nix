@@ -25,6 +25,7 @@ in
   programs = {
     lazygit.enable = true;
     zoxide.enable = true;
+    starship.enable = true;
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
@@ -39,6 +40,17 @@ in
     tmate = {
       enable = true;
       #host = ""; #In case you wish to use a server other than tmate.io 
+    };
+    tmux = {
+      enable = true;
+      terminal = "tmux-256color";
+      # aggressiveResize = true; -- Disabled to be iTerm-friendly
+      baseIndex = 1;
+      newSession = true;
+
+      plugins = with pkgs; [
+        tmuxPlugins.better-mouse-mode
+      ];
     };
     git = {
       enable = true;
