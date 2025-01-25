@@ -1,33 +1,33 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = {}
 
 if wezterm.config_builder then
-  config = wezterm.config_builder()
+	config = wezterm.config_builder()
 end
 
-config.font = wezterm.font 'CaskaydiaCove Nerd Font Mono'
+config.font = wezterm.font("CaskaydiaCove Nerd Font Mono")
 
 config.font_size = 16
 
-config.color_scheme = 'Catppuccin Mocha'
+config.color_scheme = "Catppuccin Mocha"
 
 config.window_background_opacity = 0.88
 
 config.window_decorations = "RESIZE"
 
 config.window_background_gradient = {
-  interpolation = 'Linear',
+	interpolation = "Linear",
 
-  orientation = 'Vertical',
+	orientation = "Vertical",
 
-  blend = 'Rgb',
+	blend = "Rgb",
 
-  colors = {
-    '#11111b',
-    '#181825',
-  },
+	colors = {
+		"#11111b",
+		"#181825",
+	},
 }
 
-config.front_end = 'WebGpu'
+--config.front_end = 'WebGpu'
 
 return config
