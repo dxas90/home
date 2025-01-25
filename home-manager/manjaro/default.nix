@@ -212,7 +212,7 @@ in
     g = "git";
     vim = "nvim";
     "..." = "cd ../..";
-    hmu = "\"home-manager switch --flake github:dxas90/home#manjaro --impure --refresh --extra-experimental-features 'nix-command flakes'\"";
+    hmu = "home-manager switch --flake github:dxas90/home#manjaro --impure --refresh --extra-experimental-features \"nix-command flakes\"";
     nsp = "nix-shell -p";
   };
 
