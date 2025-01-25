@@ -44,8 +44,10 @@ in
     tmux = {
       enable = true;
       terminal = "tmux-256color";
+      clock24 = true;
       # aggressiveResize = true; -- Disabled to be iTerm-friendly
       baseIndex = 1;
+      keyMode = "vi";
       newSession = true;
 
       plugins = with pkgs; [
