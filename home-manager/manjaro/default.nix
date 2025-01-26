@@ -53,20 +53,6 @@ in
       plugins = with pkgs; [
         tmuxPlugins.better-mouse-mode
       ];
-      extraConfig = ''
-        # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-        set -g default-terminal "xterm-256color"
-        set -ga terminal-overrides ",*256col*:Tc"
-        set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-        set-environment -g COLORTERM "truecolor"
-
-        # Mouse works as expected
-        set-option -g mouse on
-        # easy-to-remember split pane commands
-        bind '%' split-window -h -c "#{pane_current_path}"
-        bind '"' split-window -v -c "#{pane_current_path}"
-        bind c new-window -c "#{pane_current_path}"
-      '';
     };
     wezterm = {
       enable = false;
@@ -172,6 +158,7 @@ in
   home.file = {
     ".git-commit.txt".source = ./config/git-commit.tx;
     ".gitignore".source = ./config/gitignore;
+    ".tmux.conf".source = ./config/tmux.conf;
     #".config/starship.toml".source = ./config/starship.toml;
     ".config/nvim" = {
         source = ./nvim;
