@@ -27,6 +27,18 @@ config.window_background_gradient = {
 		"#181825",
 	},
 }
+config.keys = {
+	{ key = "Enter", mods = "ALT", action = "DisableDefaultAssignment" },
+	{ key = "f", mods = "CTRL", action = "DisableDefaultAssignment" },
+	{ key = "f", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "k", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "LeftArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "RightArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "UpArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "DownArrow", mods = "CTRL|SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "PageUp", mods = "SHIFT", action = "DisableDefaultAssignment" },
+	{ key = "PageDown", mods = "SHIFT", action = "DisableDefaultAssignment" },
+}
 
 --config.mux_enable_ssh_agent = false
 
