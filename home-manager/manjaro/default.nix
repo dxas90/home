@@ -25,7 +25,7 @@ in
   programs = {
     lazygit.enable = true;
     zoxide.enable = true;
-    starship.enable = true;
+    starship.enable = false;
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
