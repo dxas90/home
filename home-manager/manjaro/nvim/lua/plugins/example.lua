@@ -61,7 +61,6 @@ if true then
       email = "dxas90@gmail.com",            -- Email address
     },
     config = function(_, opts)
-      require("telescope").load_extension('find_template')
       require("template").setup(opts)
     end,
   },
