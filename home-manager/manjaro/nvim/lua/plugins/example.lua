@@ -48,7 +48,9 @@ if true then
       cmd = {'Template','TemProject'},
       config = function()
       require('template').setup({
-        -- config in there
+        temp_dir = '~/.config/nvim/templates', -- template directory
+        author = 'Daniel Ramirez',             -- your name
+        email = 'dxas90@gmail.com',            -- email address
       })
    end}
  }
