@@ -44,15 +44,26 @@ if true then
   },
   { "YannickFricke/codestats.nvim" },
   { "nvim-lua/plenary.nvim", lazy = true },
-  { "glepnir/template.nvim",
-      cmd = {'Template','TemProject'},
-      config = function()
-      require('template').setup({
-        temp_dir = '~/.config/nvim/templates', -- template directory
-        author = 'Daniel Ramirez',             -- your name
-        email = 'dxas90@gmail.com',            -- email address
-      })
-   end}
+  {
+    "glepnir/template.nvim",
+    lazy = true, -- Explicitly mark this plugin for lazy loading
+    cmd = { "Template", "TemProject" }, -- Lazy load when these commands are used
+    keys = {
+      {
+        "<leader>ct",
+        function() vim.fn.feedkeys(":Template ") end,
+        desc = "Open Template",
+      },
+    },
+    opts = {
+      temp_dir = vim.fn.expand("~/.config/nvim/templates"), -- Template directory
+      author = "Daniel Ramirez",                            -- Your name
+      email = "dxas90@gmail.com",                           -- Email address
+    },
+    config = function(_, opts)
+      require("template").setup(opts)
+    end,
+  },
  }
 end
 
