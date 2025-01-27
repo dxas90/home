@@ -10,3 +10,5 @@ int main(int argc, char **argv)
     return 0;
 }
 
+// ex: ts=4 sw=4 et filetype=c
+

@@ -4,7 +4,6 @@
 # Copyright (c) {{_date_}}
 # When I wrote this, only God and I understood what I was doing
 # Now, God only knows
-from __future__ import print_function
 import sys
 
 getline = lambda: sys.stdin.readline().strip()
@@ -27,5 +26,5 @@ if __name__ == '__main__':
     except Exception:
         exit
 
-
+# ex: ts=4 sw=4 et filetype=python
 

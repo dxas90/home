@@ -14,3 +14,6 @@ int main()
 
     return 0;
 }
+
+// ex: ts=4 sw=4 et filetype=cpp
+

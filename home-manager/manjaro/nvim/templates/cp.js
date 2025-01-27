@@ -15,3 +15,6 @@ process.stdin.resume();
 process.stdin.setEncoding('utf8');
 process.stdin.on('data',function(data){solve(data);out.close();});
 process.stdin.on('end', function () {process.exit();});
+
+// ex: ts=4 sw=4 et filetype=sh
+

@@ -15,3 +15,6 @@ function finish {
 }
 
 trap finish EXIT
+
+# ex: ts=4 sw=4 et filetype=sh
+

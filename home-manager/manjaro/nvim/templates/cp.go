@@ -24,3 +24,6 @@ func main() {
 		printf("Case #%d: \n", n)
 	}
 }
+
+// ex: ts=4 sw=4 et filetype=go
+

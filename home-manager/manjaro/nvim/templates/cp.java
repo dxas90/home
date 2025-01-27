@@ -42,3 +42,6 @@ public class Solution {
         return Integer.parseInt(next());
     }// </editor-fold>
 }
+
+// ex: ts=4 sw=4 et filetype=java
+
