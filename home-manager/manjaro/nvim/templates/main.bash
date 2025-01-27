@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #If environment variable DEBUG is set to "true" bash debug will be set. Set Debug to "verbose" for more verbose debug information
 if [ "${MY_DEBUG,,}" == "true" ]; then set -x; elif [ "${MY_DEBUG,,}" == "verbose" ]; then set -xv; fi
@@ -14,4 +14,4 @@ function finish {
 
 trap finish EXIT
 
-# ex: ts=4 sw=4 et filetype=sh
+# vim: set syn=sh ts=4 sw=4 et filetype=sh
