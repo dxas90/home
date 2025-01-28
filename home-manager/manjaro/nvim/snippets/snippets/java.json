@@ -1,0 +1,32 @@
+{
+    "Fenwick Tree Class": {
+        "prefix": "_fenwicktree",
+        "body": [
+            "class FenwickTree {",
+            "    final static int M = 10000;",
+            "    int[] tree;",
+            "",
+            "    public FenwickTree(int n) {",
+            "        tree = new int[n + 1];",
+            "    }",
+            "",
+            "    public int query(int i) {",
+            "        int sum = 0;",
+            "        for (; i > 0; i -= (i & -i)) sum = (sum + tree[i]) % M;",
+            "        return sum;",
+            "    }",
+            "",
+            "    public int query(int i, int j) {",
+            "        if (i > 1) return (query(j) - query(i - 1) + M) % M;",
+            "        return query(j);",
+            "    }",
+            "",
+            "    public void update(int i, int val) {",
+            "        val = val % M;",
+            "        for (; i < tree.length; i += (i & -i)) tree[i] = (tree[i] + val) % M;",
+            "    }",
+            "}"
+        ],
+        "description": "This class implements a Fenwick Tree (Binary Indexed Tree) for efficient range sum queries and updates with modular arithmetic. It supports single-index and range queries, and updates elements in logarithmic time."
+    }
+}

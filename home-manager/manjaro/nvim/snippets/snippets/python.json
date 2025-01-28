@@ -1,0 +1,105 @@
+{
+    "Getline Function": {
+        "prefix": "_getline",
+        "body": [
+            "def getline():",
+            "    \"\"\"",
+            "    A simple input generator that reads lines from standard input.",
+            "    It continuously yields lines until an IOError is encountered.",
+            "    \"\"\"",
+            "    while True:",
+            "        try:",
+            "            yield sys.stdin.readline().strip()",
+            "        except IOError:",
+            "            raise StopIteration"
+        ],
+        "description": "This function implements a simple input generator that reads lines from standard input. It yields one line at a time, stripped of trailing whitespace, and stops iteration when an IOError occurs."
+    },
+    "Profile Decorator": {
+        "prefix": "_profile",
+        "body": [
+            "def profile(column='time'):",
+            "    \"\"\"",
+            "    A decorator for profiling a function's performance using cProfile.",
+            "    The results are sorted by the specified column (default is 'time').",
+            "    \"\"\"",
+            "    import cProfile",
+            "    def _profile(function):",
+            "        def __profile(*args, **kw):",
+            "            prof = cProfile.Profile()",
+            "            prof.runcall(function, *args, **kw)",
+            "            prof.print_stats(column)",
+            "        return __profile",
+            "    return _profile"
+        ],
+        "description": "This decorator profiles a function using cProfile. It prints the profiling results, sorted by the specified column (default is 'time')."
+    },
+    "Memoization Decorator": {
+        "prefix": "_memoize",
+        "body": [
+            "cache = {}",
+            "def get_key(function, args, kw=\"\", alg='sha512'):",
+            "    \"\"\"",
+            "    Generates a unique key for the cache using the function name, arguments, and keyword arguments.",
+            "    Defaults to using the 'sha512' algorithm.",
+            "    \"\"\"",
+            "    return hashlib.new(alg, pk.dumps((function.__name__, args, kw))).hexdigest()",
+            "",
+            "def memoize(get_key=get_key, cache=cache):",
+            "    \"\"\"",
+            "    A decorator for memoizing function results using a cache dictionary.",
+            "    \"\"\"",
+            "    def _memoize(function):",
+            "        def __memoize(*args, **kw):",
+            "            key = get_key(function, args, kw, alg='md5')",
+            "            try:",
+            "                return cache[key]",
+            "            except KeyError:",
+            "                cache[key] = function(*args, **kw)",
+            "                return cache[key]",
+            "        return __memoize",
+            "    return _memoize",
+            "",
+            "@memoize()"
+        ],
+        "description": "This decorator memoizes function results to optimize repeated calls with the same inputs. Uses a cache and customizable key generation."
+    },
+    "Fenwick Tree Implementation": {
+        "prefix": "fenwicktree",
+        "body": [
+            "class fenwick_tree(object):",
+            "    def __init__(self, N):",
+            "        self.M = 1000000000",
+            "        self.N = N",
+            "        self.tree = [0 for i in range(N + 5)]",
+            "",
+            "    def _query(self, i):",
+            "        suma = 0",
+            "        while i:",
+            "            suma = (suma + self.tree[i]) % self.M",
+            "            i -= (i & -i)",
+            "        return suma",
+            "",
+            "    def query(self, ls):",
+            "        return (self._query(int(ls[1]) + 1) - self._query(int(ls[0])) + self.M) % self.M",
+            "",
+            "    def update(self, i, val):",
+            "        val = val % self.M",
+            "        while i <= self.N:",
+            "            self.tree[i] = (self.tree[i] + val) % self.M",
+            "            i += (i & -i)"
+        ],
+        "description": "This class implements a Fenwick Tree (Binary Indexed Tree) with modular arithmetic. It supports range queries and point updates efficiently."
+    },
+    "Cached Integer Conversion": {
+        "prefix": "cachedint",
+        "body": [
+            "_I_ = {}",
+            "def _int(n):",
+            "    if not n in _I_:",
+            "        _I_[n] = int(n)",
+            "    return _I_[n]"
+        ],
+        "description": "This function implements a cached integer conversion. It uses a dictionary to store previously computed integer conversions for faster repeated access."
+    }
+}

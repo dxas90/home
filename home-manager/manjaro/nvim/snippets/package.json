@@ -8,6 +8,18 @@
             {
                 "language": "c",
                 "path": "./snippets/c.json"
+            },
+            {
+                "language": "cpp",
+                "path": "./snippets/cpp.json"
+            },
+            {
+                "language": "java",
+                "path": "./snippets/java.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/python.json"
             }
         ]
     }
