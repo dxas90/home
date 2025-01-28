@@ -1,5 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-let
+{ inputs, outputs, lib, config, pkgs, ... }: let
   homePath = "/home/daniel";
 in
 {
@@ -29,7 +28,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $HOME/.config/sops-nix/secrets/codestats_api_key)\"\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $HOME/.config/sops-nix/secrets/codestats_api_key)\"\nsource $HOME/.config/sops-nix/secrets/pve\n";
     };
     direnv = {
       enable = true;
@@ -167,6 +166,7 @@ in
     ".config/mc/ini".source = ./config/mc.ini;
     ".wezterm.lua".source = ./config/wezterm.lua;
     ".bash_aliases".source = ./config/bash_aliases;
+    ".bash_logout".source = ./config/bash_logout;
     ".face".source = ./.face;
     ".face.icon".source = ./.face;
     ".ssh/config".source = ./config/ssh_config;
@@ -228,6 +228,9 @@ in
       path = "%r/secrets/hello"; 
     };
     secrets."codestats_api_key" = {
+      mode = "0400";
+    };
+    secrets."pve" = {
       mode = "0400";
     };
     templates."config-with-secrets.toml" = {

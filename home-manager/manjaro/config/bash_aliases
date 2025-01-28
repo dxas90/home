@@ -50,39 +50,15 @@ new_venv() {
 }
 
 new_lab() {
-  cat <<EOF > shell.nix
-let
-  nixpkgs = fetchTarball "https://github.com/NixOS/nixpkgs/tarball/master";
-  pkgs = import nixpkgs { config = { allowUnfree = true; }; overlays = []; };
-in
-
-pkgs.mkShellNoCC {
-  packages = with pkgs; [
-    chromedriver
-    firefox
-    geckodriver
-    google-chrome
-    jupyter
-    python312Packages.matplotlib
-    python312Packages.numpy
-    python312Packages.pip
-    python312Packages.requests
-    python312Packages.selenium
-    python312Packages.virtualenv
-  ];
-  LANGUAGE="en_US";
-  shellHook = ''
-    jupyter lab --browser any --ContentsManager.allow_hidden=True
-  '';
-}
-EOF
+  new_venv && \
+  pip install -U numpy pandas matplotlib scikit-learn requests jupyterlab && \
+  jupyter lab --browser any
 }
 
 mylab() {
   mkdir -p ~/C0D3/Python
   cd ~/C0D3/Python
   new_lab
-  nix-shell
 }
 
 new_ansible_role() {
