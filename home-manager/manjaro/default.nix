@@ -28,7 +28,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nexport CODESTATS_API_KEY=\"$(cat $HOME/.config/sops-nix/secrets/codestats_api_key)\"\nsource $HOME/.config/sops-nix/secrets/pve\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nsource $HOME/.config/sops-nix/secrets/*.sh\n";
     };
     direnv = {
       enable = true;
@@ -227,10 +227,13 @@ in
       mode = "0440";
       path = "%r/secrets/hello"; 
     };
-    secrets."codestats_api_key" = {
+    secrets."codestats_api_key.sh" = {
       mode = "0400";
     };
-    secrets."pve" = {
+    secrets."pve.sh" = {
+      mode = "0400";
+    };
+    secrets."cf_api_token.sh" = {
       mode = "0400";
     };
     templates."config-with-secrets.toml" = {
