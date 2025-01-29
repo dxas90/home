@@ -233,7 +233,7 @@ in
     secrets."pve.sh" = {
       mode = "0400";
     };
-    secrets."cf_api_token.sh" = {
+    secrets."cf_api_token" = {
       mode = "0400";
     };
     templates."config-with-secrets.toml" = {
