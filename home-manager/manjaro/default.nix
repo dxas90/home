@@ -236,6 +236,12 @@ in
     secrets."cf_api_token" = {
       mode = "0400";
     };
+    secrets."cloudflare_r2_access_key" = {
+      mode = "0400";
+    };
+    secrets."cloudflare_r2_secret_key" = {
+      mode = "0400";
+    };
     templates."config-with-secrets.toml" = {
       mode = "0400";
       content = ''
