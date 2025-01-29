@@ -200,6 +200,7 @@ in
   home.shellAliases = {
     g = "git";
     vim = "nvim";
+    cat = "bat -p";
     "..." = "cd ../..";
     hmu = "home-manager switch --flake github:dxas90/home#manjaro --impure --refresh --extra-experimental-features \"nix-command flakes\"";
     nsp = "nix-shell -p";
@@ -208,6 +209,8 @@ in
   home.sessionPath = [
     "$HOME/.local/bin"
     "$HOME/.linkerd2/bin"
+    "$HOME/.local/go/bin"
+    "$HOME/.cargo/bin"
   ];
 
   nix.gc = {
