@@ -28,7 +28,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nsource $HOME/.config/sops-nix/secrets/*.sh\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\neval ($HOME/.config/sops-nix/secrets/*.sh)\n";
     };
     direnv = {
       enable = true;
@@ -227,14 +227,14 @@ in
     age.sshKeyPaths = [ "${homePath}/.ssh/id_rsa" ];
     defaultSopsFile = ./secrets.sops.yaml;
     secrets."hello" = {
-      mode = "0440";
+      mode = "0400";
       path = "%r/secrets/hello"; 
     };
     secrets."codestats_api_key.sh" = {
-      mode = "0400";
+      mode = "0500";
     };
     secrets."pve.sh" = {
-      mode = "0400";
+      mode = "0500";
     };
     secrets."cf_api_token" = {
       mode = "0400";
