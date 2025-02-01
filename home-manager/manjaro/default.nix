@@ -28,7 +28,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\neval ($HOME/.config/sops-nix/secrets/*.sh)\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\neval $($HOME/.config/sops-nix/secrets/*.sh)\n";
     };
     direnv = {
       enable = true;
