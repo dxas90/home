@@ -28,7 +28,7 @@ in
     bash = {
       enable = true;
       historyControl = [ "ignoredups" "ignorespace" ];
-      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nfind \"${HOME}/.config/sops-nix/secrets\" -type f -name \"*.sh\" -exec bash -c 'source \"$1\"' _ {} \;\n";
+      bashrcExtra = "eval \"$(starship init bash)\"\nif [ -f ~/.bash_aliases ]; then\n. ~/.bash_aliases\nfi\nfind \"$HOME/.config/sops-nix/secrets\" -type f -name \"*.sh\" -exec bash -c 'source \"$1\"' _ {} \;\n";
     };
     direnv = {
       enable = true;
