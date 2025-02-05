@@ -153,38 +153,38 @@ in
      sops
   ];
 
-  home.file = {
-    ".git-commit.txt".source = ./config/git-commit.tx;
-    ".gitignore".source = ./config/gitignore;
-    ".tmux.conf".source = ./config/tmux.conf;
-    #".config/starship.toml".source = ./config/starship.toml;
-    ".config/nvim" = {
-        source = ./nvim;
-        recursive = true;
-    };
-    ".config/mc/ini".source = ./config/mc.ini;
-    ".wezterm.lua".source = ./config/wezterm.lua;
-    ".bash_aliases".source = ./config/bash_aliases;
-    ".bash_logout".source = ./config/bash_logout;
-    ".face".source = ./.face;
-    ".face.icon".source = ./.face;
-    ".ssh/config".source = ./config/ssh_config;
-    ".config/lazygit/config.yml".text = ''
-    disableStartupPopups: true
-    reporting: "off"
-    '';
-    ".config/environment.d/gsk.conf".text = ''
-    GSK_RENDERER=gl
-    '';
-    ".ssh/config.d/git".text = ''
-    Host github.com
-      HostName github.com
-      User git
-    Host gitlab.com
-      HostName gitlab.com
-      User git
-    '';
-  };
+#   home.file = {
+#     ".git-commit.txt".source = ./config/git-commit.tx;
+#     ".gitignore".source = ./config/gitignore;
+#     ".tmux.conf".source = ./config/tmux.conf;
+#     #".config/starship.toml".source = ./config/starship.toml;
+#     ".config/nvim" = {
+#         source = ./nvim;
+#         recursive = true;
+#     };
+#     ".config/mc/ini".source = ./config/mc.ini;
+#     ".wezterm.lua".source = ./config/wezterm.lua;
+#     ".bash_aliases".source = ./config/bash_aliases;
+#     ".bash_logout".source = ./config/bash_logout;
+#     ".face".source = ./.face;
+#     ".face.icon".source = ./.face;
+#     ".ssh/config".source = ./config/ssh_config;
+#     ".config/lazygit/config.yml".text = ''
+#     disableStartupPopups: true
+#     reporting: "off"
+#     '';
+#     ".config/environment.d/gsk.conf".text = ''
+#     GSK_RENDERER=gl
+#     '';
+#     ".ssh/config.d/git".text = ''
+#     Host github.com
+#       HostName github.com
+#       User git
+#     Host gitlab.com
+#       HostName gitlab.com
+#       User git
+#     '';
+#   };
 
   home.sessionVariables = {
     EDITOR = "nvim";
