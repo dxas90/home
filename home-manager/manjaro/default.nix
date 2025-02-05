@@ -140,7 +140,6 @@ in
      discord
      teams-for-linux
      telegram-desktop
-     zoom-us
      age
      aria2
      bat
