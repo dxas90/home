@@ -38,7 +38,7 @@ in
     # Tmate terminal sharing.
     tmate = {
       enable = true;
-      #host = ""; #In case you wish to use a server other than tmate.io 
+      #host = ""; #In case you wish to use a server other than tmate.io
     };
     tmux = {
       enable = true;
@@ -125,32 +125,13 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages =  with pkgs; [
-     git-credential-keepassxc
-     go-task
-     k3d
-     k9s
      keepassxc
-     kopia
-     kubectl
-     kubernetes-helm
-     lazygit
-     linkerd_edge
      nerdfonts
-     vcluster
      discord
      teams-for-linux
      telegram-desktop
-     age
      aria2
-     bat
-     direnv
-     fd
-     fzf
-     jq
      neovim
-     nerdfonts
-     ripgrep
-     sops
   ];
 
 #   home.file = {
@@ -188,6 +169,7 @@ in
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    VISUAL = "\$EDITOR";
     GS_OPTIONS = "-sPAPERSIZE=a4";
     GIT_SSH_COMMAND = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i \${HOME}/.ssh/id_ed25519";
     MY_SHELL = "\$(basename \$(readlink /proc/\$\$/exe))";
@@ -227,7 +209,7 @@ in
     defaultSopsFile = ./secrets.sops.yaml;
     secrets."hello" = {
       mode = "0400";
-      path = "%r/secrets/hello"; 
+      path = "%r/secrets/hello";
     };
     secrets."codestats_api_key.sh" = {
       mode = "0500";
